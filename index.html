@@ -56,7 +56,7 @@
 				<section>
 					<h2>What's that coming over the hill?</h2>
 
-					<p>It's 2D42, the 1332 service from Penarth</p>
+					<p class="fragment">It's 2D42, the 1332 service from Penarth</p>
 
 					<aside class="notes">
 						<p>You've probably heard a lot about Open Data. And you've thought "I'd like to get me some of that". And there's quite a big overlap between programming and trains. So let's see what it's all about...</p>
@@ -82,6 +82,69 @@
 						<p>You can spend ages playing with this data and understanding the links between them all.</p>
 					</aside>
 				</section>
+
+
+				<section>
+						<h1>TfL Data</h1>
+						<h2>Relatively Easy <span class="fragment">*</span></h2>
+
+					<aside class="notes">
+						We'll start with TfL purely because their data is relatively easy * to access.
+					</aside>
+				</section>
+
+
+				<section>
+					<aside class="notes">
+						I won't spend too long cause I realise most of you don't live in London, and I think if you've never lived in London you don't *quite* understand how important it is that a large train rattles up every two minutes. I certainly didn't.
+					</aside>
+				</section>
+
+
+				<section>
+					<aside class="notes">
+						So. TfL's live data is easy to get hold of, and as it's JSON, it's even easier for us to use in Python. Unfortunately the quality of the data is highly variable. And it often disappears. Or changes format.
+					</aside>
+				</section>
+
+
+				<section>
+					<aside class="notes">
+						I run a website called Up Down London - my friend is a wheelchair user and she wanted a way to find out which lifts are broken to know where she could and couldn't travel. As part of our quest to make this data as accurate as possible, we've had a lot of meetings and discussions with TfL's data team. We've seen some improvement and believe they want to get better, but there's still a long way to go.
+					</aside>
+				</section>
+
+
+				<section>
+					<aside class="notes">
+						I made an eink thing for my hallway.
+					</aside>
+				</section>
+
+
+				<section>
+					<aside class="notes">
+						So what if you don't want live data but want to get hold of timetables? And yes, the tube does run to a very strict timetable. But the method of getting those is way outside the scope of this talk. It's called TransXChange, and it's everything you'd expect from a specification designed to do everything.
+					</aside>
+				</section>
+
+
+				<section>
+					<aside class="notes">
+						So how about the big railway? Here we'll start with the timetables. These are available in two formats - XML, which is huge and verbose, and CIF which is a text file you can chop up into chunks, and is surprisingly my preferred option.
+					</aside>
+				</section>
+
+
+				<section>
+					<aside class="notes">
+						But where the real fun lies is with the signalling data.
+					</aside>
+				</section>
+
+
+				<section>
+					<aside class="notes">
 			</div>
 
 		</div>

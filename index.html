@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>reveal.js – The HTML Presentation Framework</title>
+		<title>Choo Choo! All aboard the Data Train!</title>
 
 		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
 		<meta name="author" content="Hakim El Hattab">
@@ -43,8 +43,8 @@
 				<section>
 					<h1>Choo Choo!</h1>
 					<h2>All aboard the Data Train!</h2>
-					<img src="https://twemoji.maxcdn.com/2/svg/1f686.svg" style="width: 30%; height: 30%; border: none; box-shadow: none; background: none;">
-					<img src="https://twemoji.maxcdn.com/2/svg/1f687.svg" style="width: 30%; height: 30%; border: none; box-shadow: none; background: none;">
+					<img data-src="https://twemoji.maxcdn.com/2/svg/1f686.svg" style="width: 30%; height: 30%; border: none; box-shadow: none; background: none;">
+					<img data-src="https://twemoji.maxcdn.com/2/svg/1f687.svg" style="width: 30%; height: 30%; border: none; box-shadow: none; background: none;">
 					<p>Kirk Northrop</p>
 
 					<aside class="notes">
@@ -56,10 +56,39 @@
 				<section>
 					<h2>What's that coming over the hill?</h2>
 
-					<p class="fragment">It's 2D42, the 1332 service from Penarth</p>
+					<p class="fragment">It's 2P31, the 0927 service to Penarth</p>
 
 					<aside class="notes">
-						<p>You've probably heard a lot about Open Data. And you've thought "I'd like to get me some of that". And there's quite a big overlap between programming and trains. So let's see what it's all about...</p>
+						<p>You've probably heard a lot about Open Data. And you've thought "I'd like to get me some of that". And there's quite a big overlap in interest between programming and trains. So let's see what it's all about...</p>
+					</aside>
+				</section>
+
+				<section>
+					<p>
+						<img data-src="https://twemoji.maxcdn.com/2/svg/1f682.svg" style="width: 20%; height: 20%; padding: 1em; border: none; box-shadow: none; background: none;">
+						<img data-src="https://twemoji.maxcdn.com/2/svg/1f440.svg" style="width: 20%; height: 20%; padding: 1em; border: none; box-shadow: none; background: none;">
+						<img data-src="https://twemoji.maxcdn.com/2/svg/1f4dd.svg" style="width: 20%; height: 20%; padding: 1em; border: none; box-shadow: none; background: none;">
+					</p>
+					<p>
+						<img data-src="https://twemoji.maxcdn.com/2/svg/1f645.svg" style="width: 20%; height: 20%; padding: 1em; border: none; box-shadow: none; background: none;">
+					</p>
+
+					<aside class="notes">
+						<p>
+							Just a couple of notes - firstly, this talk is about open data, not big data. There is a lot of data, but not in a big data way. Also, I'm really not a train spotter. I know some of you will see this as pedantic, but I have little interest in the metal boxes on wheels. Some people get excited about steam trains, I get excited about DTG-R signalling systems. Nothing in this talk will let you find out anything much about the trains themselves, just what they are up to. See me as the Fat Controller wondering where all his trains are.
+						</p>
+					</aside>
+				</section>
+
+				<section>
+					<p>
+						<img data-src="IMG_1168.jpg" style="width: 40%; height: 40%; border: none;">
+					</p>
+
+					<aside class="notes">
+						<p>
+							So why am I interested in this, you ask? My granddad was a signal engineer for most of his working life, and when I was little we used to go for walks alongside the railway. On these he taught me details about the Cambridge area signalling system that mostly went right over the head of an eight year old, but obviously enough of it sunk in, and I still remember a lot of what he told me. I'm sure he'd be amazed today if he knew we could find all this data out for ourselves over the internet.
+						</p>
 					</aside>
 				</section>
 
@@ -79,24 +108,19 @@
 
 						<p>Network Rail, who actually run the infrastructure of the British railways also have feeds - these are more focussed on signalling and trains.</p>
 
-						<p>You can spend ages playing with this data and understanding the links between them all.</p>
+						<p>You can spend ages playing with this data and understanding the links between them all. I'm hoping to give you a whirlwind introduction to that.</p>
 					</aside>
 				</section>
 
 
 				<section>
 						<h1>TfL Data</h1>
-						<h2>Relatively Easy <span class="fragment">*</span></h2>
+						<h2>https://api.tfl.gov.uk/</h2>
 
 					<aside class="notes">
-						We'll start with TfL purely because their data is relatively easy * to access.
-					</aside>
-				</section>
+						We'll start with TfL purely because their data is relatively easy to access.
 
-
-				<section>
-					<aside class="notes">
-						I won't spend too long cause I realise most of you don't live in London, and I think if you've never lived in London you don't *quite* understand how important it is that a large train rattles up every two minutes. I certainly didn't.
+						I'm going to move quite quickly through the TfL stuff - it's a simple API, I just want to give you an understanding how it fits together and what you can do. I'm assuming most of you know how use a simple JSON API. Then we can get onto the much more complicated National Rail stuff.
 					</aside>
 				</section>
 
@@ -115,38 +139,545 @@
 					</ul></p>
 
 					<aside class="notes">
-						So. TfL's live data is easy to get hold of, and as it's JSON, it's even easier for us to use in Python. Unfortunately the quality of the data is highly variable. And it often disappears. Or changes format.
+						So. TfL have a unified API which has very poor documentation but is quite easy to use. TfL's live train data is easy to get hold of, and as it's JSON, it's even easier for us to use in Python. Unfortunately the quality of the data is highly variable and not always reliably available.
+
+						For today, we're only interested in what tube trains are up to - Overground, DLR, Trams and Buses are all there if you want them.
 					</aside>
 				</section>
 
 
 				<section>
+					<h2>NaPTAN Codes</h2>
+					<table>
+						<tr>
+							<td>Osterley Underground</td>
+							<td>940GZZLUOSY</td>
+						</tr>
+						<tr>
+							<td>King's Cross St. Pancras Underground</td>
+							<td>940GZZLUKSX</td>
+						</tr>
+						<tr>
+							<td>King's Cross Railway Station</td>
+							<td>9100KNGX</td>
+						</tr>
+						<tr>
+							<td>City Hall Bus Stop, Cardiff</td>
+							<td>5710WDB48419</td>
+						</tr>
+					</table>
+
 					<aside class="notes">
-						I run a website called Up Down London - my friend is a wheelchair user and she wanted a way to find out which lifts are broken to know where she could and couldn't travel. As part of our quest to make this data as accurate as possible, we've had a lot of meetings and discussions with TfL's data team. We've seen some improvement and believe they want to get better, but there's still a long way to go.
+						In the UK, every single stop has what is called a NaPTAN code. This is a National Public Transport Access Node. You might have seen them in URLs, they look like this -->
+
+						Every single bus stop and railway station has one or more of these codes that uniquely identify it. Now the big railways don't care about this at all, but TfL do. So we need to look them up.
+					</aside>
+				</section>
+
+				<section>
+					<p style="font-size:smaller;">https://api.tfl.gov.uk/StopPoint/Search/Osterley?modes=tube</p>
+					<pre class="fragment"><code data-trim data-noescape>{
+  "$type": "Tfl.Api.Presentation.Entities.SearchResponse, Tfl.Api.Presentation.Entities",
+  "query": "Osterley",
+  "total": 1,
+  "matches": [
+    {
+      "$type": "Tfl.Api.Presentation.Entities.MatchedStop, Tfl.Api.Presentation.Entities",
+      "icsId": "1000171",
+      "topMostParentId": "940GZZLUOSY",
+      "modes": [
+        "bus",
+        "tube"
+      ],
+      "id": "940GZZLUOSY",
+      "name": "Osterley Underground Station",
+      "lat": 51.481274,
+      "lon": -0.352224
+    }
+  ]
+}</code></pre>
+
+					<aside class="notes">
+						TfL now have something they call the unified API, and unless you really want to go to town, it's by far the easiest way to do things.
+
+						So we can search for our desired station - I'm using Osterley in West London as an example because it's small and simple.
+
+						And we get back the code for Osterley. So let's find out what is happening there.
+					</aside>
+				</section>
+
+				<section>
+					<p style="font-size:smaller;">https://api.tfl.gov.uk/StopPoint/940GZZLUOSY/Arrivals</p>
+					<pre class="fragment"><code data-trim data-noescape>[
+  {
+    "$type": "Tfl.Api.Presentation.Entities.Prediction, Tfl.Api.Presentation.Entities",
+    "id": "687179731",
+    "operationType": 1,
+    "vehicleId": "227",
+    "naptanId": "940GZZLUOSY",
+    "stationName": "Osterley Underground Station",
+    "lineId": "piccadilly",
+    "lineName": "Piccadilly",
+    "platformName": "Westbound - Platform 1",
+    "direction": "inbound",
+    "bearing": "",
+    "destinationNaptanId": "940GZZLUHRC",
+    "destinationName": "Heathrow Terminals 1-2-3 Underground Station",
+    "timestamp": "2017-10-16T19:58:13Z",
+    "timeToStation": 976,
+    "currentLocation": "At Ravenscourt Park Platform 2",
+    "towards": "Heathrow T123 + 5",
+    "expectedArrival": "2017-10-16T20:14:29Z",
+    "timeToLive": "2017-10-16T20:14:29Z",
+    "modeName": "tube",
+    "timing": {
+      "$type": "Tfl.Api.Presentation.Entities.PredictionTiming, Tfl.Api.Presentation.Entities",
+      "countdownServerAdjustment": "00:00:00",
+      "source": "0001-01-01T00:00:00",
+      "insert": "0001-01-01T00:00:00",
+      "read": "2017-10-16T19:57:37.193Z",
+      "sent": "2017-10-16T19:58:13Z",
+      "received": "0001-01-01T00:00:00"
+    }
+  },
+  {
+    "$type": "Tfl.Api.Presentation.Entities.Prediction, Tfl.Api.Presentation.Entities",
+    "id": "-442130791",
+    "operationType": 1,
+    "vehicleId": "235",
+    "naptanId": "940GZZLUOSY",
+    "stationName": "Osterley Underground Station",
+    "lineId": "piccadilly",
+    "lineName": "Piccadilly",
+    "platformName": "Westbound - Platform 1",
+    "direction": "inbound",
+    "bearing": "",
+    "destinationNaptanId": "940GZZLUHR4",
+    "destinationName": "Heathrow Terminal 4 Underground Station",
+    "timestamp": "2017-10-16T19:58:13Z",
+    "timeToStation": 1696,
+    "currentLocation": "At South Kensington Platform 3",
+    "towards": "Heathrow via T4 Loop",
+    "expectedArrival": "2017-10-16T20:26:29Z",
+    "timeToLive": "2017-10-16T20:26:29Z",
+    "modeName": "tube",
+    "timing": {
+      "$type": "Tfl.Api.Presentation.Entities.PredictionTiming, Tfl.Api.Presentation.Entities",
+      "countdownServerAdjustment": "00:00:00",
+      "source": "0001-01-01T00:00:00",
+      "insert": "0001-01-01T00:00:00",
+      "read": "2017-10-16T19:57:37.24Z",
+      "sent": "2017-10-16T19:58:13Z",
+      "received": "0001-01-01T00:00:00"
+    }
+  },
+  {
+    "$type": "Tfl.Api.Presentation.Entities.Prediction, Tfl.Api.Presentation.Entities",
+    "id": "-38977304",
+    "operationType": 1,
+    "vehicleId": "252",
+    "naptanId": "940GZZLUOSY",
+    "stationName": "Osterley Underground Station",
+    "lineId": "piccadilly",
+    "lineName": "Piccadilly",
+    "platformName": "Eastbound - Platform 2",
+    "direction": "outbound",
+    "bearing": "",
+    "destinationNaptanId": "940GZZLUASG",
+    "destinationName": "Arnos Grove Underground Station",
+    "timestamp": "2017-10-16T19:58:13Z",
+    "timeToStation": 16,
+    "currentLocation": "Between Hounslow East and Osterley",
+    "towards": "Arnos Grove",
+    "expectedArrival": "2017-10-16T19:58:29Z",
+    "timeToLive": "2017-10-16T19:58:29Z",
+    "modeName": "tube",
+    "timing": {
+      "$type": "Tfl.Api.Presentation.Entities.PredictionTiming, Tfl.Api.Presentation.Entities",
+      "countdownServerAdjustment": "00:00:00",
+      "source": "0001-01-01T00:00:00",
+      "insert": "0001-01-01T00:00:00",
+      "read": "2017-10-16T19:57:37.256Z",
+      "sent": "2017-10-16T19:58:13Z",
+      "received": "0001-01-01T00:00:00"
+    }
+  },
+  {
+    "$type": "Tfl.Api.Presentation.Entities.Prediction, Tfl.Api.Presentation.Entities",
+    "id": "-2045767041",
+    "operationType": 1,
+    "vehicleId": "306",
+    "naptanId": "940GZZLUOSY",
+    "stationName": "Osterley Underground Station",
+    "lineId": "piccadilly",
+    "lineName": "Piccadilly",
+    "platformName": "Westbound - Platform 1",
+    "direction": "inbound",
+    "bearing": "",
+    "destinationNaptanId": "940GZZLUHRC",
+    "destinationName": "Heathrow Terminals 1-2-3 Underground Station",
+    "timestamp": "2017-10-16T19:58:13Z",
+    "timeToStation": 1096,
+    "currentLocation": "At Hammersmith Platform 2",
+    "towards": "Heathrow T123 + 5",
+    "expectedArrival": "2017-10-16T20:16:29Z",
+    "timeToLive": "2017-10-16T20:16:29Z",
+    "modeName": "tube",
+    "timing": {
+      "$type": "Tfl.Api.Presentation.Entities.PredictionTiming, Tfl.Api.Presentation.Entities",
+      "countdownServerAdjustment": "00:00:00",
+      "source": "0001-01-01T00:00:00",
+      "insert": "0001-01-01T00:00:00",
+      "read": "2017-10-16T19:57:37.209Z",
+      "sent": "2017-10-16T19:58:13Z",
+      "received": "0001-01-01T00:00:00"
+    }
+  },
+  {
+    "$type": "Tfl.Api.Presentation.Entities.Prediction, Tfl.Api.Presentation.Entities",
+    "id": "-441999720",
+    "operationType": 1,
+    "vehicleId": "315",
+    "naptanId": "940GZZLUOSY",
+    "stationName": "Osterley Underground Station",
+    "lineId": "piccadilly",
+    "lineName": "Piccadilly",
+    "platformName": "Westbound - Platform 1",
+    "direction": "inbound",
+    "bearing": "",
+    "destinationNaptanId": "940GZZLUHR4",
+    "destinationName": "Heathrow Terminal 4 Underground Station",
+    "timestamp": "2017-10-16T19:58:13Z",
+    "timeToStation": 436,
+    "currentLocation": "Between Acton Town and South Ealing",
+    "towards": "Heathrow via T4 Loop",
+    "expectedArrival": "2017-10-16T20:05:29Z",
+    "timeToLive": "2017-10-16T20:05:29Z",
+    "modeName": "tube",
+    "timing": {
+      "$type": "Tfl.Api.Presentation.Entities.PredictionTiming, Tfl.Api.Presentation.Entities",
+      "countdownServerAdjustment": "00:00:00",
+      "source": "0001-01-01T00:00:00",
+      "insert": "0001-01-01T00:00:00",
+      "read": "2017-10-16T19:57:37.178Z",
+      "sent": "2017-10-16T19:58:13Z",
+      "received": "0001-01-01T00:00:00"
+    }
+  },
+  {
+    "$type": "Tfl.Api.Presentation.Entities.Prediction, Tfl.Api.Presentation.Entities",
+    "id": "-38846229",
+    "operationType": 1,
+    "vehicleId": "332",
+    "naptanId": "940GZZLUOSY",
+    "stationName": "Osterley Underground Station",
+    "lineId": "piccadilly",
+    "lineName": "Piccadilly",
+    "platformName": "Eastbound - Platform 2",
+    "direction": "outbound",
+    "bearing": "",
+    "destinationNaptanId": "940GZZLUCKS",
+    "destinationName": "Cockfosters Underground Station",
+    "timestamp": "2017-10-16T19:58:13Z",
+    "timeToStation": 376,
+    "currentLocation": "Between Hatton Cross and Hounslow West",
+    "towards": "Cockfosters",
+    "expectedArrival": "2017-10-16T20:04:29Z",
+    "timeToLive": "2017-10-16T20:04:29Z",
+    "modeName": "tube",
+    "timing": {
+      "$type": "Tfl.Api.Presentation.Entities.PredictionTiming, Tfl.Api.Presentation.Entities",
+      "countdownServerAdjustment": "00:00:00",
+      "source": "0001-01-01T00:00:00",
+      "insert": "0001-01-01T00:00:00",
+      "read": "2017-10-16T19:57:37.272Z",
+      "sent": "2017-10-16T19:58:13Z",
+      "received": "0001-01-01T00:00:00"
+    }
+  },
+  {
+    "$type": "Tfl.Api.Presentation.Entities.Prediction, Tfl.Api.Presentation.Entities",
+    "id": "1090332965",
+    "operationType": 1,
+    "vehicleId": "344",
+    "naptanId": "940GZZLUOSY",
+    "stationName": "Osterley Underground Station",
+    "lineId": "piccadilly",
+    "lineName": "Piccadilly",
+    "platformName": "Eastbound - Platform 2",
+    "direction": "outbound",
+    "bearing": "",
+    "destinationNaptanId": "940GZZLUASG",
+    "destinationName": "Arnos Grove Underground Station",
+    "timestamp": "2017-10-16T19:58:13Z",
+    "timeToStation": 556,
+    "currentLocation": "Between Heathrow and Hatton Cross",
+    "towards": "Arnos Grove",
+    "expectedArrival": "2017-10-16T20:07:29Z",
+    "timeToLive": "2017-10-16T20:07:29Z",
+    "modeName": "tube",
+    "timing": {
+      "$type": "Tfl.Api.Presentation.Entities.PredictionTiming, Tfl.Api.Presentation.Entities",
+      "countdownServerAdjustment": "00:00:00",
+      "source": "0001-01-01T00:00:00",
+      "insert": "0001-01-01T00:00:00",
+      "read": "2017-10-16T19:57:37.287Z",
+      "sent": "2017-10-16T19:58:13Z",
+      "received": "0001-01-01T00:00:00"
+    }
+  },
+  {
+    "$type": "Tfl.Api.Presentation.Entities.Prediction, Tfl.Api.Presentation.Entities",
+    "id": "-1642810290",
+    "operationType": 1,
+    "vehicleId": "353",
+    "naptanId": "940GZZLUOSY",
+    "stationName": "Osterley Underground Station",
+    "lineId": "piccadilly",
+    "lineName": "Piccadilly",
+    "platformName": "Eastbound - Platform 2",
+    "direction": "outbound",
+    "bearing": "",
+    "destinationNaptanId": "940GZZLUCKS",
+    "destinationName": "Cockfosters Underground Station",
+    "timestamp": "2017-10-16T19:58:13Z",
+    "timeToStation": 856,
+    "currentLocation": "Approaching Heathrow Terminal 1,2,3",
+    "towards": "Cockfosters",
+    "expectedArrival": "2017-10-16T20:12:29Z",
+    "timeToLive": "2017-10-16T20:12:29Z",
+    "modeName": "tube",
+    "timing": {
+      "$type": "Tfl.Api.Presentation.Entities.PredictionTiming, Tfl.Api.Presentation.Entities",
+      "countdownServerAdjustment": "00:00:00",
+      "source": "0001-01-01T00:00:00",
+      "insert": "0001-01-01T00:00:00",
+      "read": "2017-10-16T19:57:37.303Z",
+      "sent": "2017-10-16T19:58:13Z",
+      "received": "0001-01-01T00:00:00"
+    }
+  },
+  {
+    "$type": "Tfl.Api.Presentation.Entities.Prediction, Tfl.Api.Presentation.Entities",
+    "id": "1090201893",
+    "operationType": 1,
+    "vehicleId": "364",
+    "naptanId": "940GZZLUOSY",
+    "stationName": "Osterley Underground Station",
+    "lineId": "piccadilly",
+    "lineName": "Piccadilly",
+    "platformName": "Westbound - Platform 1",
+    "direction": "inbound",
+    "bearing": "",
+    "destinationNaptanId": "940GZZLUHR4",
+    "destinationName": "Heathrow Terminal 4 Underground Station",
+    "timestamp": "2017-10-16T19:58:13Z",
+    "timeToStation": 1336,
+    "currentLocation": "Approaching Barons Court",
+    "towards": "Heathrow via T4 Loop",
+    "expectedArrival": "2017-10-16T20:20:29Z",
+    "timeToLive": "2017-10-16T20:20:29Z",
+    "modeName": "tube",
+    "timing": {
+      "$type": "Tfl.Api.Presentation.Entities.PredictionTiming, Tfl.Api.Presentation.Entities",
+      "countdownServerAdjustment": "00:00:00",
+      "source": "0001-01-01T00:00:00",
+      "insert": "0001-01-01T00:00:00",
+      "read": "2017-10-16T19:57:37.225Z",
+      "sent": "2017-10-16T19:58:13Z",
+      "received": "0001-01-01T00:00:00"
+    }
+  }
+]</code></pre>
+
+					<aside class="notes">
+						 So once we've got our NaPTAN, we can see what is going on there. Thanks to the wonders of the internet, here's what's going on right now at a simple station - Osterley on the Piccadilly line. This becomes somewhat harder to understand once you look at what's happening at a station line Baker Street. But if you know the tube network and you know which data you are after, it's trivially easy.
+
 					</aside>
 				</section>
 
 
 				<section>
+					<h2>What's in the data?</h2>
+					<ul>
+						<li>"destinationNaptanId": "940GZZLUHR4"</li>
+					    <li>"destinationName": "Heathrow Terminal 4 Underground Station"</li>
+					    <li>"expectedArrival": "2017-10-16T20:20:29Z"</li>
+					    <li>"platformName": "Westbound - Platform 1"</li>
+					    <li>"currentLocation": "Approaching Barons Court"</li>
+					    <li>"vehicleId": "364"</li>
+					</ul>
+
 					<aside class="notes">
-						I made an eink thing for my hallway.
+						So what sort of data do we have? Well, we have both the NaPTAN and the name of the train's destination.
+
+						We can also find out when the train is expected to arrive here - this should be the same as appears on the platform describers but for dull technical reasons probably isn't.
+
+						We can also tell which platform it is at, although this can be more accurate at some stations than others.
+
+						We also have a text string showing where the train is currently.
+
+						We also have something called vehicleId - but this refers to what trip the train is doing in the timetable, and nothing related to the actual vehicle.
+					</aside>
+				</section>
+
+				<section>
+					<h2>Current Trains at Osterley</h2>
+					<p>TO COME</p>
+
+					<aside class="notes">
+						And here is that data parsed and presented nicely. You can do much better than just a webpage though, I made...
+
+						this device using a Pi Zero W and Pimoroni's wonderful inkyphat that sits in my hallway telling me when the next trains are coming at my local station.
 					</aside>
 				</section>
 
 
 				<section>
+					PICTURE OF eInk THING
+
 					<aside class="notes">
-						So what if you don't want live data but want to get hold of timetables? And yes, the tube does run to a very strict timetable. But the method of getting those is way outside the scope of this talk. It's called TransXChange, and it's everything you'd expect from a specification designed to do everything.
+						...this device using a Pi Zero W and Pimoroni's wonderful inkyphat that sits in my hallway telling me when the next trains are coming at my local station. I did most of it in a couple of hours, and the majority of that time was spent getting the display to look nice. So you can very easily get hold of this data, and Python is a perfect language to create something like this easily with, and even better if you have a Raspberry Pi sitting idle.
 					</aside>
 				</section>
 
 
 				<section>
+					<p>
+						<img data-src="wttdis149p40.png" style="width: 25%; height: 25%; border: none;">
+					</p>
+
 					<aside class="notes">
-						So how about the big railway? Here we'll start with the timetables. These are available in two formats - XML, which is huge and verbose, and CIF which is a text file you can chop up into chunks, and is surprisingly my preferred option.
+						I'm not going to say any more about TfL because their data is easy to access. Timetables for the tube are more complicated, and yes contrary to popular belief the tube does run to a very strict timetable, of which there's an example on the screen.
+
+						But unfortunately the method of getting those is way outside the scope of this talk. It's provided in a format called TransXChange, and it's everything you'd expect from a specification designed to be all encompassing and do everything.
 					</aside>
 				</section>
 
+				<section>
+					(It's horrible)
+
+					<aside class="notes">
+						Have a chat to me afterwards if you want to understand more and you love parsing XML documents.
+					</aside>
+				</section>
+
+
+				<section>
+<pre><code data-trim data-noescape>BSNC200571705221712081111100 PXX1B356108125375002 HST    125      B S C        P
+BX         GWYGW610800
+LOPADTON  1245 124510 3      TB
+LIROYAOJN           1246 00000000   2
+LIPRTOBJP           1247H00000000   2
+LILDBRKJ            1248H00000000   ML 2
+LIACTONW            1251H00000000   ML ML
+LISTHALL            1253H00000000   ML
+LIHTRWAJN           1254H00000000   ML
+LISLOUGH            1258H000000002  ML
+LIMDNHEAD           1301H000000001  ML
+LITWYFORD           1304H000000001                    1
+LIRDNGKBJ           1308 00000000   DML
+LIRDNGSTN 1310 1312      130913109  ML    T
+LIRDNGHLJ           1313H00000000
+LIGORASTR           1318 00000000
+LIDIDCOTP           1323 000000001                    1
+LIWANTRD            1327H00000000
+LICHALLOW           1329H00000000
+LIUFNGTN            1330H00000000
+LISDON    1337H1339H     133813384        T           1
+LIWTNBSTJ           1346 00000000                      H
+LIHLVNGTN           1353 00000000                      H
+LIWSTLGHJ           1400H00000000                       1H
+LIBRSTPWY 1406 1409      140514082        T
+LIPATCHWY           1411 000000002
+LIPILNING           1414 000000002
+LISEVTNLE           1415 00000000
+LISEVTNLW           1418H00000000
+LISEVTNLJ           1419H000000003  ML
+LILWERWJN           1425 00000000                     1
+LIMAINDWJ           1428 00000000                        H
+LINWPTRTG 1430 1432      143014312        T
+LIEBBWJ             1435 00000000                     2
+LIMSHFILD           1439H00000000
+LILNGDYKJ           1444 00000000   D
+LICRDFCEN 1446 1449      144514473        T
+LILCKWTHJ           1451H00000000
+LIPONYCLN           1500 00000000
+LIBRGEND  1508 1509H     150815081        T
+LISTORMY            1514 00000000
+LIMRGMMJN           1516H00000000                     1
+LIPTALBOT 1521 1522H     15211521         T
+LINEATH   1528H1530      15291529         T           1
+LISWANSLE           1540 00000000
+LTSWANSEA 1542 15422     TF       </code></pre>
+
+					<aside class="notes">
+						So how about the big railway? Here we'll start with the timetables. There is an XML feed, but the surprisingly better option is a wonderful format called CIF, which goes back to the mainframe era. It's basically a text file where each line holds a record. Here's the record for the train I got here on Wednesday:
+					</aside>
+				</section>
+
+				<section>
+					<p style="font-size: smaller; text-align: left;">
+						<span style="font-family: monospace">BS</span> - Basic Schedule<br>
+						<span style="font-family: monospace">N</span> - Record Type<br>
+						<span style="font-family: monospace">C20057</span> - UID<br>
+						<span style="font-family: monospace">170522</span> - Start Date - yymmdd<br>
+						<span style="font-family: monospace">171208</span> - End Date - yymmdd<br>
+						<span style="font-family: monospace">1111100</span> - Days run - mtwtfss<br>
+						<span style="font-family: monospace">P</span> - This is a passenger train<br>
+						<span style="font-family: monospace">XX</span> - An express passenger train to be precise<br>
+						<span style="font-family: monospace">1B35</span> - Train Identity - used by signallers<br>
+						<span style="font-family: monospace">6108125375002</span> - More details about stuff<br>
+						<span style="font-family: monospace">HST</span> - is a High Speed Train<br>
+						<span style="font-family: monospace">125</span> - Top speed in mph<br>
+						<span style="font-family: monospace">B S C</span> - Has a buffet, first and standard class seating and you can reserve a seat
+					</p>
+
+					<aside class="notes">
+						This is a lot simpler than it looks - just chop the lines up into pieces and match it to the spec. I'll skim over this because there's a full and very detailed specification online which I've linked to in the slides.
+					</aside>
+				</section>
+
+				<section>
+					<p style="font-size: smaller; text-align: left;">
+						<span style="font-family: monospace">LI</span> - Intermediate Location<br>
+						<span style="font-family: monospace">CRDFCEN</span> - Location ID<br>
+						<span style="font-family: monospace">1446</span> - Scheduled Arrival<br>
+						<span style="font-family: monospace">1449</span> - Scheduled Departure<br>
+						<span style="font-family: monospace">1445</span> - Public Arrival<br>
+						<span style="font-family: monospace">1447</span> - Public Departure<br>
+						<span style="font-family: monospace">3</span> - Platform Number<br>
+						<span style="font-family: monospace">T</span> - Activity - "Stops to take up and set down passengers"<br>
+					</p>
+
+					<aside class="notes">
+						Here's the record for a station stop. There's a couple of important points to note here. Firstly, you'll note that there's two sets of times.
+
+						The Public times are what is printed in the timetable. As you can see, the train is publicly listed to depart two minutes before it actually will - this is just to make sure everyone gets on the train on time and is very common on long distance trains like this.
+
+						The scheduled time is what will actually happen. This is what the driver and the signaller follow.
+
+						The other important thing is the Location ID. Now the big railway doesn't care about the NaPTANs we discussed earlier. Instead it uses many different types of ID - but we will look at three - the TIPLOC, the STANOX and the CRS code.
+					</aside>
+				</section>
+
+				<section>
+					<h2>Cardiff Central</h2>
+					<p>
+						<span style="font-family: monospace">CDF</span> - CRS Code<br>
+						<span style="font-family: monospace">77301</span> - Stanox<br>
+						<span style="font-family: monospace">CRDFCEN</span> - TIPLOC<br>
+					</p>
+
+					<aside class="notes">
+						Here's the three codes for Cardiff Central.
+						The CRS Code you may have used as it's used by the booking systems - a bit like how LHR is used to denote Heathrow Airport.
+						The Stanox tends to be reported by the train movements system (TRUST)
+						The TIPLOC stands for Timing Point Location, and tends to be used by the timetabling system.
+
+						Why are there three codes? Well, despite most of this harking back to British Rail days, the systems are there for different purposes. CRS codes are just used for reserving seats and booking tickets. TIPLOC codes are used to work out timetables. STANOX codes are less numerous than TIPLOCs, and much closer to the "bare metal" of the system, as it were. There's other codes too, but this is complicated enough.
+					</aside>
+				</section>
 
 				<section>
 					<aside class="notes">

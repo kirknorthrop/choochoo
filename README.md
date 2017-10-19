@@ -18,6 +18,14 @@ Copyright (C) London Underground Limited 2017
 
 I consider that using a brief extract of this material is covered under the fair dealing provisions of the Copyright, Designs and Patents Act 1998 and The Copyright and Rights in Performances (Quotation and Parody) Regulations 2014.
 
+### Monty Python foot image
+
+Applies to foot.png
+
+Copyright (C) Python (Monty) Pictures Limited
+
+I consider that using a brief extract of this material is covered under the fair dealing provisions of the Copyright, Designs and Patents Act 1998 and The Copyright and Rights in Performances (Quotation and Parody) Regulations 2014.
+
 ### Talk contents
 
 Applies to all files that are not included modules or explicitly part of another licence.

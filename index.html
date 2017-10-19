@@ -75,7 +75,7 @@
 
 					<aside class="notes">
 						<p>
-							Just a couple of notes - firstly, this talk is about open data, not big data. There is a lot of data, but not in a big data way. Also, I'm really not a train spotter. I know some of you will see this as pedantic, but I have little interest in the metal boxes on wheels. Some people get excited about steam trains, I get excited about DTG-R signalling systems. Nothing in this talk will let you find out anything much about the trains themselves, just what they are up to. See me as the Fat Controller wondering where all his trains are.
+							Just a couple of notes - firstly, this talk is about open data, not big data. There is a lot of data, but not in a big data way. Also, nothing in this talk will let you find out anything much about the trains themselves, just what they are up to. Personally, I have little interest in the metal boxes on wheels. Some people get excited about steam trains, I get excited about DTG-R signalling systems. See me as the Fat Controller wondering where all his trains are.
 						</p>
 					</aside>
 				</section>
@@ -91,6 +91,16 @@
 						</p>
 					</aside>
 				</section>
+
+        <section>
+          <h1>Speeditalk™</h1>
+
+          <aside class="notes">
+            <p>
+              There's a lot to get through here, and I want to help you understand how it works and what access we have rather than going through code in much detail, so some stuff might go past quite quickly. The slides, code samples and additional resources will be available on GitHub, I'll give the link at the end and please feel free to ask me questions throughout the weekend.
+            </p>
+          </aside>
+        </section>
 
 				<section>
 					<h2>Three main data providers</h2>
@@ -679,15 +689,44 @@ LTSWANSEA 1542 15422     TF       </code></pre>
 					</aside>
 				</section>
 
-				<section>
+
+
+        <img src="foot.png" id="foot" style="border: none; box-shadow: none; background: none; top: -1000px; display: block; position: absolute; z-index: 100">
+				<section data-state="footstomp">
+
+          <h1>STOMP</h1>
+          <img data-src="https://twemoji.maxcdn.com/2/svg/1f682.svg" style="width: 20%; height: 20%; border: none; box-shadow: none; background: none;">
+
 					<aside class="notes">
-						But where the real fun lies is with the signalling data.
+            So a lot of the most interesting feeds use STOMP. If you've ever used RabbitMQ - it's very similar. There is a range of message queues you can subscribe to, and you get messages pushed out to you constantly. And I mean constantly - these feeds contain
 					</aside>
 				</section>
 
+        <section>
+          <h1>Exciting* amounts of data!</h1>
 
-				<section>
-					<aside class="notes">
+          <aside class="notes">
+            exciting amounts of data
+
+            to me.
+          </aside>
+        </section>
+
+        <section>
+          <h1>What data?</h1>
+          <ul>
+            <li>Train Movements</li>
+            <li>Cancellations</li>
+            <li>Trains moving between signals</li>
+            <li>What the signals are displaying<span class="fragment"> (ish)</span></li>
+          </ul>
+
+          <aside class="notes">
+            to me.
+          </aside>
+        </section>
+
+
 			</div>
 
 		</div>
@@ -717,7 +756,41 @@ LTSWANSEA 1542 15422     TF       </code></pre>
 				]
 			});
 
-		</script>
+      var footPos;
 
+      function raiseFoot() {
+        var foot = document.getElementById('foot');
+
+        if(footPos > -1000) {
+          footPos = footPos - 8;
+          foot.style.top = footPos + 'px';
+          setTimeout(raiseFoot, 1);
+        }
+      }
+
+      function dropFoot() {
+        var foot = document.getElementById('foot');
+
+        if(footPos < -100) {
+          footPos = footPos + 8;
+          foot.style.top = footPos + 'px';
+          setTimeout(dropFoot, 1);
+        }
+      }
+
+      function runFootStomp() {
+        footPos = parseInt(foot.style.top.replace('/px/', ''));
+        dropFoot();
+        setTimeout(raiseFoot, 12000);
+      }
+
+      Reveal.addEventListener('footstomp', function() {
+        setTimeout(runFootStomp, 2000);
+      }, false );
+
+      Reveal.addEventListener('slidechanged', function() {
+        raiseFoot();
+      }, false );
+    </script>
 	</body>
 </html>

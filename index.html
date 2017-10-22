@@ -1,192 +1,195 @@
 <!doctype html>
 <html lang="en">
 
-	<head>
-		<meta charset="utf-8">
+    <head>
+        <meta charset="utf-8">
 
-		<title>Choo Choo! All aboard the Data Train!</title>
+        <title>Choo Choo! All aboard the Data Train!</title>
 
-		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-		<meta name="author" content="Hakim El Hattab">
+        <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+        <meta name="author" content="Hakim El Hattab">
 
-		<meta name="apple-mobile-web-app-capable" content="yes">
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<link rel="stylesheet" href="reveal.js/css/reveal.css">
-		<link rel="stylesheet" href="reveal.js/css/theme/black.css" id="theme">
+        <link rel="stylesheet" href="reveal.js/css/reveal.css">
+        <link rel="stylesheet" href="reveal.js/css/theme/black.css" id="theme">
 
-		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="reveal.js/lib/css/zenburn.css">
+        <!-- Theme used for syntax highlighting of code -->
+        <link rel="stylesheet" href="reveal.js/lib/css/zenburn.css">
 
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'reveal.js/css/print/pdf.css' : 'reveal.js/css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
+        <!-- Printing and PDF exports -->
+        <script>
+            var link = document.createElement( 'link' );
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = window.location.search.match( /print-pdf/gi ) ? 'reveal.js/css/print/pdf.css' : 'reveal.js/css/print/paper.css';
+            document.getElementsByTagName( 'head' )[0].appendChild( link );
+        </script>
 
-		<!--[if lt IE 9]>
-		<script src="lib/js/html5shiv.js"></script>
-		<![endif]-->
-	</head>
+        <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+    </head>
 
-	<body>
+    <body>
 
-		<div class="reveal">
+        <div class="reveal">
 
-			<!-- Any section element inside of this container is displayed as a slide -->
-			<div class="slides">
-				<section>
-					<h1>Choo Choo!</h1>
-					<h2>All aboard the Data Train!</h2>
-					<img data-src="https://twemoji.maxcdn.com/2/svg/1f686.svg" style="width: 30%; height: 30%; border: none; box-shadow: none; background: none;">
-					<img data-src="https://twemoji.maxcdn.com/2/svg/1f687.svg" style="width: 30%; height: 30%; border: none; box-shadow: none; background: none;">
-					<p>Kirk Northrop</p>
+            <!-- Any section element inside of this container is displayed as a slide -->
+            <div class="slides">
+                <section>
+                    <h1>Choo Choo!</h1>
+                    <h2>All aboard the Data Train!</h2>
+                    <img data-src="https://twemoji.maxcdn.com/2/svg/1f686.svg" style="width: 30%; height: 30%; border: none; background: none;">
+                    <img data-src="https://twemoji.maxcdn.com/2/svg/1f687.svg" style="width: 30%; height: 30%; border: none; background: none;">
+                    <p>Kirk Northrop</p>
 
-					<aside class="notes">
-						<p>Or as the band The Automatic might have put it...</p>
-					</aside>
-				</section>
+                    <aside class="notes">
+                        <p>Good morning conference - I'm Kirk and I'm going to talk to you about how we can use open data to see what trains are up to.</p>
 
-
-				<section>
-					<h2>What's that coming over the hill?</h2>
-
-					<p class="fragment">It's 2P31, the 0927 service to Penarth</p>
-
-					<aside class="notes">
-						<p>You've probably heard a lot about Open Data. And you've thought "I'd like to get me some of that". And there's quite a big overlap in interest between programming and trains. So let's see what it's all about...</p>
-					</aside>
-				</section>
-
-				<section>
-					<p>
-						<img data-src="https://twemoji.maxcdn.com/2/svg/1f682.svg" style="width: 20%; height: 20%; padding: 1em; border: none; box-shadow: none; background: none;">
-						<img data-src="https://twemoji.maxcdn.com/2/svg/1f440.svg" style="width: 20%; height: 20%; padding: 1em; border: none; box-shadow: none; background: none;">
-						<img data-src="https://twemoji.maxcdn.com/2/svg/1f4dd.svg" style="width: 20%; height: 20%; padding: 1em; border: none; box-shadow: none; background: none;">
-					</p>
-					<p>
-						<img data-src="https://twemoji.maxcdn.com/2/svg/1f645.svg" style="width: 20%; height: 20%; padding: 1em; border: none; box-shadow: none; background: none;">
-					</p>
-
-					<aside class="notes">
-						<p>
-							Just a couple of notes - firstly, this talk is about open data, not big data. There is a lot of data, but not in a big data way. Also, nothing in this talk will let you find out anything much about the trains themselves, just what they are up to. Personally, I have little interest in the metal boxes on wheels. Some people get excited about steam trains, I get excited about DTG-R signalling systems. See me as the Fat Controller wondering where all his trains are.
-						</p>
-					</aside>
-				</section>
-
-				<section>
-					<p>
-						<img data-src="IMG_1168.jpg" style="width: 40%; height: 40%; border: none;">
-					</p>
-
-					<aside class="notes">
-						<p>
-							So why am I interested in this, you ask? My granddad was a signal engineer for most of his working life, and when I was little we used to go for walks alongside the railway. On these he taught me details about the Cambridge area signalling system that mostly went right over the head of an eight year old, but obviously enough of it sunk in, and I still remember a lot of what he told me. I'm sure he'd be amazed today if he knew we could find all this data out for ourselves over the internet.
-						</p>
-					</aside>
-				</section>
-
-        <section>
-          <h1>Speeditalk™</h1>
-
-          <aside class="notes">
-            <p>
-              There's a lot to get through here, and I want to help you understand how it works and what access we have rather than going through code in much detail, so some stuff might go past quite quickly. The slides, code samples and additional resources will be available on GitHub, I'll give the link at the end and please feel free to ask me questions throughout the weekend.
-            </p>
-          </aside>
-        </section>
-
-				<section>
-					<h2>Three main data providers</h2>
-
-					<p>Transport for London (TfL)</p>
-					<p>Rail Delivery Group (RDG)</p>
-					<p>Network Rail (NR)</p>
-
-					<aside class="notes">
-						<p>There's three sources of rail data in the UK.</p>
-
-						<p>First up - Transport for London - they have data for Tube, DLR, London Overground, buses and trams.</p>
-
-						<p>Then there's two providers for the main rail network - the Rail Delivery Group, which used to be called ATOC, and is better known as National Rail. It's owned by the rail franchise companies and they mainly care about services and fares.</p>
-
-						<p>Network Rail, who actually run the infrastructure of the British railways also have feeds - these are more focussed on signalling and trains.</p>
-
-						<p>You can spend ages playing with this data and understanding the links between them all. I'm hoping to give you a whirlwind introduction to that.</p>
-					</aside>
-				</section>
+                        <p>Or as the band The Automatic might have put it...</p>
+                    </aside>
+                </section>
 
 
-				<section>
-						<h1>TfL Data</h1>
-						<h2>https://api.tfl.gov.uk/</h2>
+                <section>
+                    <h2>What's that coming over the hill?</h2>
 
-					<aside class="notes">
-						We'll start with TfL purely because their data is relatively easy to access.
+                    <p class="fragment">It's 2P31, the 0927 service to Penarth</p>
 
-						I'm going to move quite quickly through the TfL stuff - it's a simple API, I just want to give you an understanding how it fits together and what you can do. I'm assuming most of you know how use a simple JSON API. Then we can get onto the much more complicated National Rail stuff.
-					</aside>
-				</section>
+                    <aside class="notes">
+                        <p>What's that coming over the hill?</p>
+                        <p>It's 2P31, the 0927 service to Penarth</p>
+                        <p>You've probably heard a lot about Open Data. And you've thought "I'd like to get me some of that". And there's quite a big overlap in interest between programming and trains. So let's see what it's all about...</p>
+                    </aside>
+                </section>
 
+                <section>
+                    <p>
+                        <img data-src="https://twemoji.maxcdn.com/2/svg/1f682.svg" style="width: 20%; height: 20%; padding: 1em; border: none; background: none;">
+                        <img data-src="https://twemoji.maxcdn.com/2/svg/1f440.svg" style="width: 20%; height: 20%; padding: 1em; border: none; background: none;">
+                        <img data-src="https://twemoji.maxcdn.com/2/svg/1f4dd.svg" style="width: 20%; height: 20%; padding: 1em; border: none; background: none;">
+                    </p>
+                    <p>
+                        <img data-src="https://twemoji.maxcdn.com/2/svg/1f645.svg" style="width: 20%; height: 20%; padding: 1em; border: none; background: none;">
+                    </p>
 
-				<section>
-					<h2>Good news:</h2>
-					<p><ul>
-						<li>Easy to get</li>
-						<li>JSON</li>
-					</ul></p>
+                    <aside class="notes">
+                        <p>Just a couple of notes - firstly, this talk is about open data, not big data.</p>
+                        <p>There is a lot of data, but not in a big data way.</p>
+                        <p>Also, nothing in this talk will let you find out anything much about the trains themselves, just what they are up to. Personally, I have little interest in the metal boxes on wheels. Some people get excited about steam trains, I get excited about DTG-R signalling systems.</p>
+                        <p>See me as the Fat Controller wondering where all his trains are.</p>
+                    </aside>
+                </section>
 
-					<h2>Bad news:</h2>
-					<p><ul>
-						<li>Variable quality</li>
-						<li>Variable workingness</li>
-					</ul></p>
+                <section>
+                    <p>
+                        <img data-src="IMG_1168.jpg" style="width: 40%; height: 40%; border: none;">
+                    </p>
 
-					<aside class="notes">
-						So. TfL have a unified API which has very poor documentation but is quite easy to use. TfL's live train data is easy to get hold of, and as it's JSON, it's even easier for us to use in Python. Unfortunately the quality of the data is highly variable and not always reliably available.
+                    <aside class="notes">
+                        <p>So why am I interested in this, you ask? My granddad was a signal engineer for most of his working life, and when I was little we used to go for walks alongside the railway.</p>
+                        <p>On these walks he taught me details about the Cambridge area signalling system that mostly went right over the head of an eight year old. But obviously enough of it sunk in, and I still remember a lot of what he told me.</p>
+                        <p>I'm sure he'd be amazed today if he knew we could find all this data out for ourselves over the internet.</p>
+                    </aside>
+                </section>
 
-						For today, we're only interested in what tube trains are up to - Overground, DLR, Trams and Buses are all there if you want them.
-					</aside>
-				</section>
+                <section>
+                    <h1>Speeditalk™</h1>
 
+                    <aside class="notes">
+                        <p>There's a lot to get through here, and I want to help you understand how it works and what access we have rather than going through code in much detail, so some stuff might go past quite quickly.</p>
+                        <p>The slides, code samples and additional resources will be available on GitHub, I'll give the link at the end and please feel free to ask me questions throughout the weekend.</p>
+                    </aside>
+                </section>
 
-				<section>
-					<h2>NaPTAN Codes</h2>
-					<table>
-						<tr>
-							<td>Osterley Underground</td>
-							<td>940GZZLUOSY</td>
-						</tr>
-						<tr>
-							<td>King's Cross St. Pancras Underground</td>
-							<td>940GZZLUKSX</td>
-						</tr>
-						<tr>
-							<td>King's Cross Railway Station</td>
-							<td>9100KNGX</td>
-						</tr>
-						<tr>
-							<td>City Hall Bus Stop, Cardiff</td>
-							<td>5710WDB48419</td>
-						</tr>
-					</table>
+                <section>
+                    <h2>Three main data providers</h2>
 
-					<aside class="notes">
-						In the UK, every single stop has what is called a NaPTAN code. This is a National Public Transport Access Node. You might have seen them in URLs, they look like this -->
+                    <p>Transport for London (TfL)</p>
+                    <p>Rail Delivery Group (RDG)</p>
+                    <p>Network Rail (NR)</p>
 
-						Every single bus stop and railway station has one or more of these codes that uniquely identify it. Now the big railways don't care about this at all, but TfL do. So we need to look them up.
-					</aside>
-				</section>
+                    <aside class="notes">
+                        <p>There's three sources of rail data in the UK.</p>
 
-				<section>
-					<p style="font-size:smaller;">https://api.tfl.gov.uk/StopPoint/Search/Osterley?modes=tube</p>
-					<pre class="fragment"><code data-trim data-noescape>{
+                        <p>First up - Transport for London - they have data for Tube, DLR, London Overground, buses and trams.</p>
+
+                        <p>Then there's two providers for the main rail network - the Rail Delivery Group, which used to be called ATOC, and is better known as National Rail. It's owned by the rail franchise companies and they mainly care about services and fares.</p>
+
+                        <p>Network Rail, who actually run the infrastructure of the British railways also have feeds - these are more focussed on signalling and trains.</p>
+
+                        <p>You can spend ages playing with this data and understanding the links between them all. I'm hoping to give you a whirlwind introduction to that.</p>
+                    </aside>
+                </section>
+
+                <section>
+                        <h1>TfL Data</h1>
+                        <h2>https://api.tfl.gov.uk/</h2>
+
+                    <aside class="notes">
+                        <p>We'll start with TfL purely because their data is relatively easy to access.</p>
+
+                        <p>I'm going to move quite quickly through the TfL stuff - it's a simple API, I just want to give you an understanding how it fits together and what you can do. I'm assuming most of you know how use a simple JSON API. Then we can get onto the much more complicated National Rail stuff.</p>
+                    </aside>
+                </section>
+
+                <section>
+                    <h2>Good news:</h2>
+                    <p><ul>
+                        <li>Easy to get</li>
+                        <li>JSON</li>
+                    </ul></p>
+
+                    <h2>Bad news:</h2>
+                    <p><ul>
+                        <li>Variable quality</li>
+                        <li>Variable workingness</li>
+                    </ul></p>
+
+                    <aside class="notes">
+                        So. TfL have a unified API which has very poor documentation but is quite easy to use. TfL's live train data is easy to get hold of, and as it's JSON, it's even easier for us to use in Python. Unfortunately the quality of the data is highly variable and not always reliably available.
+
+                        For today, we're only interested in what tube trains are up to - Overground, DLR, Trams and Buses are all there if you want them.
+                    </aside>
+                </section>
+
+                <section>
+                    <h2>NaPTAN Codes</h2>
+                    <table>
+                        <tr>
+                            <td>Osterley Underground</td>
+                            <td>940GZZLUOSY</td>
+                        </tr>
+                        <tr>
+                            <td>King's Cross St. Pancras Underground</td>
+                            <td>940GZZLUKSX</td>
+                        </tr>
+                        <tr>
+                            <td>King's Cross Railway Station</td>
+                            <td>9100KNGX</td>
+                        </tr>
+                        <tr>
+                            <td>City Hall Bus Stop, Cardiff</td>
+                            <td>5710WDB48419</td>
+                        </tr>
+                    </table>
+
+                    <aside class="notes">
+                        In the UK, every single stop has what is called a NaPTAN code. This is a National Public Transport Access Node. You might have seen them in URLs, they look like this -->
+
+                        Every single bus stop and railway station has one or more of these codes that uniquely identify it. Now the big railways don't care about this at all, but TfL do.
+
+                        Thankfully, they give us an easy way to look them up.
+                    </aside>
+                </section>
+
+                <section>
+                    <p style="font-size:smaller;">https://api.tfl.gov.uk/StopPoint/Search/Osterley?modes=tube</p>
+                    <pre class="fragment"><code data-trim data-noescape>{
   "$type": "Tfl.Api.Presentation.Entities.SearchResponse, Tfl.Api.Presentation.Entities",
   "query": "Osterley",
   "total": 1,
@@ -207,18 +210,16 @@
   ]
 }</code></pre>
 
-					<aside class="notes">
-						TfL now have something they call the unified API, and unless you really want to go to town, it's by far the easiest way to do things.
+                    <aside class="notes">
+                        So we can search for our desired station - I'm using Osterley in West London as an example because it's small and simple.
 
-						So we can search for our desired station - I'm using Osterley in West London as an example because it's small and simple.
+                        And you can see that we've got back the code, along with some other useful information.
+                    </aside>
+                </section>
 
-						And we get back the code for Osterley. So let's find out what is happening there.
-					</aside>
-				</section>
-
-				<section>
-					<p style="font-size:smaller;">https://api.tfl.gov.uk/StopPoint/940GZZLUOSY/Arrivals</p>
-					<pre class="fragment"><code data-trim data-noescape>[
+                <section>
+                    <p style="font-size:smaller;">https://api.tfl.gov.uk/StopPoint/940GZZLUOSY/Arrivals</p>
+                    <pre class="fragment"><code data-trim data-noescape>[
   {
     "$type": "Tfl.Api.Presentation.Entities.Prediction, Tfl.Api.Presentation.Entities",
     "id": "687179731",
@@ -500,80 +501,91 @@
   }
 ]</code></pre>
 
-					<aside class="notes">
-						 So once we've got our NaPTAN, we can see what is going on there. Thanks to the wonders of the internet, here's what's going on right now at a simple station - Osterley on the Piccadilly line. This becomes somewhat harder to understand once you look at what's happening at a station line Baker Street. But if you know the tube network and you know which data you are after, it's trivially easy.
+                    <aside class="notes">
+                        So thanks to the wonders of the internet, let's find out what's going on right now at Osterley.
 
-					</aside>
-				</section>
+                        This becomes somewhat harder to understand once you look at what's happening at a station line Baker Street. But if you know the tube network and you know which data you are after, it's trivially easy.
 
-
-				<section>
-					<h2>What's in the data?</h2>
-					<ul>
-						<li>"destinationNaptanId": "940GZZLUHR4"</li>
-					    <li>"destinationName": "Heathrow Terminal 4 Underground Station"</li>
-					    <li>"expectedArrival": "2017-10-16T20:20:29Z"</li>
-					    <li>"platformName": "Westbound - Platform 1"</li>
-					    <li>"currentLocation": "Approaching Barons Court"</li>
-					    <li>"vehicleId": "364"</li>
-					</ul>
-
-					<aside class="notes">
-						So what sort of data do we have? Well, we have both the NaPTAN and the name of the train's destination.
-
-						We can also find out when the train is expected to arrive here - this should be the same as appears on the platform describers but for dull technical reasons probably isn't.
-
-						We can also tell which platform it is at, although this can be more accurate at some stations than others.
-
-						We also have a text string showing where the train is currently.
-
-						We also have something called vehicleId - but this refers to what trip the train is doing in the timetable, and nothing related to the actual vehicle.
-					</aside>
-				</section>
-
-				<section>
-					<h2>Current Trains at Osterley</h2>
-					<p>TO COME</p>
-
-					<aside class="notes">
-						And here is that data parsed and presented nicely. You can do much better than just a webpage though, I made...
-
-						this device using a Pi Zero W and Pimoroni's wonderful inkyphat that sits in my hallway telling me when the next trains are coming at my local station.
-					</aside>
-				</section>
+                    </aside>
+                </section>
 
 
-				<section>
-					PICTURE OF eInk THING
+                <section>
+                    <h2>What's in the data?</h2>
+                    <ul>
+                        <li>destinationNaptanId: 940GZZLUHR4</li>
+                        <li>destinationName: Heathrow Terminal 4 Underground Station</li>
+                        <li>expectedArrival: 2017-10-16T20:20:29Z</li>
+                        <li>platformName: Westbound - Platform 1</li>
+                        <li>currentLocation: Approaching Barons Court</li>
+                        <li>vehicleId: 364</li>
+                    </ul>
 
-					<aside class="notes">
-						...this device using a Pi Zero W and Pimoroni's wonderful inkyphat that sits in my hallway telling me when the next trains are coming at my local station. I did most of it in a couple of hours, and the majority of that time was spent getting the display to look nice. So you can very easily get hold of this data, and Python is a perfect language to create something like this easily with, and even better if you have a Raspberry Pi sitting idle.
-					</aside>
-				</section>
+                    <aside class="notes">
+                        <p>So what sort of data do we have? Well, we have both the NaPTAN and the name of the train's destination.</p>
+                        <p>We can also find out when the train is expected to arrive here - this should be the same as appears on the platform describers but for dull technical reasons probably isn't.</p>
+                        <p>We can also tell which platform it is at, although this can be more accurate at some stations than others.</p>
+                        <p>We also have a text string showing where the train is currently.</p>
+                        <p>We also have something called vehicleId - but this refers to what trip the train is doing in the timetable, and nothing related to the actual vehicle.</p>
+                    </aside>
+                </section>
+
+                <section>
+                    <h2>Current Trains at Osterley</h2>
+                    <p>TO COME</p>
+
+                    <aside class="notes">
+                        And here is that data parsed and presented nicely. You can do much better than just a webpage though, I made...
+
+                        this device using a Pi Zero W and Pimoroni's wonderful inkyphat that sits in my hallway telling me when the next trains are coming at my local station.
+                    </aside>
+                </section>
 
 
-				<section>
-					<p>
-						<img data-src="wttdis149p40.png" style="width: 25%; height: 25%; border: none;">
-					</p>
+                <section>
+                    <p>
+                        <img data-src="IMG_7090.JPG" style="border: none;">
+                    </p>
 
-					<aside class="notes">
-						I'm not going to say any more about TfL because their data is easy to access. Timetables for the tube are more complicated, and yes contrary to popular belief the tube does run to a very strict timetable, of which there's an example on the screen.
-
-						But unfortunately the method of getting those is way outside the scope of this talk. It's provided in a format called TransXChange, and it's everything you'd expect from a specification designed to be all encompassing and do everything.
-					</aside>
-				</section>
-
-				<section>
-					(It's horrible)
-
-					<aside class="notes">
-						Have a chat to me afterwards if you want to understand more and you love parsing XML documents.
-					</aside>
-				</section>
+                    <aside class="notes">
+                        <p>...this device using a Pi Zero W and Pimoroni's wonderful inkyphat that sits in my hallway telling me when the next trains are coming at my local station.</p>
+                        <p>I did most of it in a couple of hours, and the majority of that time was spent getting the display to look nice.</p>
+                        <p>So you can very easily get hold of this data, and Python is a perfect language to create something like this easily with, and even better if you have a Raspberry Pi sitting idle.</p>
+                    </aside>
+                </section>
 
 
-				<section>
+                <section>
+                    <p>
+                        <img data-src="wttdis149p40.png" style="width: 25%; height: 25%; border: none;">
+                    </p>
+
+                    <aside class="notes">
+                        <p>I'm not going to say any more about TfL because their data is easy to access. Timetables for the tube are more complicated, and yes contrary to popular belief the tube does run to a very strict timetable, of which there's an example on the screen.</p>
+
+                        <p>But unfortunately the method of getting those is way outside the scope of this talk. It's provided in a format called TransXChange, and it's everything you'd expect from a specification designed to be all encompassing and do everything.</p>
+                    </aside>
+                </section>
+
+                <section>
+                    (It's horrible)
+
+                    <aside class="notes">
+                        <p>Have a chat to me afterwards if you want to understand more and you love parsing XML documents.</p>
+                    </aside>
+                </section>
+
+                <section>
+                    <h1>CIF</h1>
+                    <p><i>(Not a cleaning product)</i></p>
+
+                    <aside class="notes">
+                        <p>So how about the big railway? Here we'll start with the timetables. There is an XML feed, but the surprisingly better option is a wonderful format called CIF, which goes back to the mainframe era. It's basically a text file where each line holds a record.</p>
+                    </aside>
+                </section>
+
+
+                <section>
 <pre><code data-trim data-noescape>BSNC200571705221712081111100 PXX1B356108125375002 HST    125      B S C        P
 BX         GWYGW610800
 LOPADTON  1245 124510 3      TB
@@ -621,140 +633,206 @@ LINEATH   1528H1530      15291529         T           1
 LISWANSLE           1540 00000000
 LTSWANSEA 1542 15422     TF       </code></pre>
 
-					<aside class="notes">
-						So how about the big railway? Here we'll start with the timetables. There is an XML feed, but the surprisingly better option is a wonderful format called CIF, which goes back to the mainframe era. It's basically a text file where each line holds a record. Here's the record for the train I got here on Wednesday:
-					</aside>
-				</section>
+                    <aside class="notes">
+                        Here's the record for the train I got here on Wednesday:
+                    </aside>
+                </section>
 
-				<section>
-					<p style="font-size: smaller; text-align: left;">
-						<span style="font-family: monospace">BS</span> - Basic Schedule<br>
-						<span style="font-family: monospace">N</span> - Record Type<br>
-						<span style="font-family: monospace">C20057</span> - UID<br>
-						<span style="font-family: monospace">170522</span> - Start Date - yymmdd<br>
-						<span style="font-family: monospace">171208</span> - End Date - yymmdd<br>
-						<span style="font-family: monospace">1111100</span> - Days run - mtwtfss<br>
-						<span style="font-family: monospace">P</span> - This is a passenger train<br>
-						<span style="font-family: monospace">XX</span> - An express passenger train to be precise<br>
-						<span style="font-family: monospace">1B35</span> - Train Identity - used by signallers<br>
-						<span style="font-family: monospace">6108125375002</span> - More details about stuff<br>
-						<span style="font-family: monospace">HST</span> - is a High Speed Train<br>
-						<span style="font-family: monospace">125</span> - Top speed in mph<br>
-						<span style="font-family: monospace">B S C</span> - Has a buffet, first and standard class seating and you can reserve a seat
-					</p>
+                <section>
+                    <p style="font-size: smaller; text-align: left;">
+                        <span style="font-family: monospace">BS</span> - Basic Schedule<br>
+                        <span style="font-family: monospace">N</span> - Record Type<br>
+                        <span style="font-family: monospace">C20057</span> - UID<br>
+                        <span style="font-family: monospace">170522</span> - Start Date - yymmdd<br>
+                        <span style="font-family: monospace">171208</span> - End Date - yymmdd<br>
+                        <span style="font-family: monospace">1111100</span> - Days run - mtwtfss<br>
+                        <span style="font-family: monospace">P</span> - This is a passenger train<br>
+                        <span style="font-family: monospace">XX</span> - An express passenger train to be precise<br>
+                        <span style="font-family: monospace">1B35</span> - Train Identity - used by signallers<br>
+                        <span style="font-family: monospace">6108125375002</span> - More details about stuff<br>
+                        <span style="font-family: monospace">HST</span> - is a High Speed Train<br>
+                        <span style="font-family: monospace">125</span> - Top speed in mph<br>
+                        <span style="font-family: monospace">B S C</span> - Has a buffet, first and standard class seating and you can reserve a seat
+                    </p>
 
-					<aside class="notes">
-						This is a lot simpler than it looks - just chop the lines up into pieces and match it to the spec. I'll skim over this because there's a full and very detailed specification online which I've linked to in the slides.
-					</aside>
-				</section>
+                    <aside class="notes">
+                        <p>This is a lot simpler than it looks - just chop the lines up into pieces of the specified length and match it to the spec.</p>
+                        <p>I'll skim over this because there's a full and very detailed specification online which I've linked to in the slides.</p>
+                    </aside>
+                </section>
 
-				<section>
-					<p style="font-size: smaller; text-align: left;">
-						<span style="font-family: monospace">LI</span> - Intermediate Location<br>
-						<span style="font-family: monospace">CRDFCEN</span> - Location ID<br>
-						<span style="font-family: monospace">1446</span> - Scheduled Arrival<br>
-						<span style="font-family: monospace">1449</span> - Scheduled Departure<br>
-						<span style="font-family: monospace">1445</span> - Public Arrival<br>
-						<span style="font-family: monospace">1447</span> - Public Departure<br>
-						<span style="font-family: monospace">3</span> - Platform Number<br>
-						<span style="font-family: monospace">T</span> - Activity - "Stops to take up and set down passengers"<br>
-					</p>
+                <section>
+                    <p style="font-size: smaller; text-align: left;">
+                        <span style="font-family: monospace">LI</span> - Intermediate Location<br>
+                        <span style="font-family: monospace">CRDFCEN</span> - Location ID<br>
+                        <span style="font-family: monospace">1446</span> - Scheduled Arrival<br>
+                        <span style="font-family: monospace">1449</span> - Scheduled Departure<br>
+                        <span style="font-family: monospace">1445</span> - Public Arrival<br>
+                        <span style="font-family: monospace">1447</span> - Public Departure<br>
+                        <span style="font-family: monospace">3</span> - Platform Number<br>
+                        <span style="font-family: monospace">T</span> - Activity - "Stops to take up and set down passengers"<br>
+                    </p>
 
-					<aside class="notes">
-						Here's the record for a station stop. There's a couple of important points to note here. Firstly, you'll note that there's two sets of times.
+                    <aside class="notes">
+                        <p>Here's the record for a station stop. There's a couple of important points to note here. Firstly, you'll note that there's two sets of times.</p>
 
-						The Public times are what is printed in the timetable. As you can see, the train is publicly listed to depart two minutes before it actually will - this is just to make sure everyone gets on the train on time and is very common on long distance trains like this.
+                        <p>The Public times are what is printed in the timetable. As you can see, the train is publicly listed to depart two minutes before it actually will - this is just to make sure everyone gets on the train on time and is very common on long distance trains like this.</p>
 
-						The scheduled time is what will actually happen. This is what the driver and the signaller follow.
+                        <p>The scheduled time is what will actually happen. This is what the driver and the signaller follow.</p>
 
-						The other important thing is the Location ID. Now the big railway doesn't care about the NaPTANs we discussed earlier. Instead it uses many different types of ID - but we will look at three - the TIPLOC, the STANOX and the CRS code.
-					</aside>
-				</section>
+                        <p>The other important thing is the Location ID. Now the big railway doesn't care about the NaPTANs we discussed earlier. Instead it uses many different types of ID - but we will look at three - the TIPLOC, the STANOX and the CRS code.</p>
+                    </aside>
+                </section>
 
-				<section>
-					<h2>Cardiff Central</h2>
-					<p>
-						<span style="font-family: monospace">CDF</span> - CRS Code<br>
-						<span style="font-family: monospace">77301</span> - Stanox<br>
-						<span style="font-family: monospace">CRDFCEN</span> - TIPLOC<br>
-					</p>
+                <section>
+                    <h2>Cardiff Central</h2>
+                    <p>
+                        <span style="font-family: monospace">CDF</span> - CRS Code<br>
+                        <span style="font-family: monospace">77301</span> - Stanox<br>
+                        <span style="font-family: monospace">CRDFCEN</span> - TIPLOC<br>
+                    </p>
 
-					<aside class="notes">
-						Here's the three codes for Cardiff Central.
-						The CRS Code you may have used as it's used by the booking systems - a bit like how LHR is used to denote Heathrow Airport.
-						The Stanox tends to be reported by the train movements system (TRUST)
-						The TIPLOC stands for Timing Point Location, and tends to be used by the timetabling system.
+                    <aside class="notes">
+                        <p>
+                            Here's the three codes for Cardiff Central.<br>
+                            The CRS Code you may have used as it's used by the booking systems - a bit like how LHR is used to denote Heathrow Airport.<br>
+                            The Stanox tends to be reported by the train movements system (TRUST)<br>
+                            The TIPLOC stands for Timing Point Location, and tends to be used by the timetabling system.
+                        </p>
 
-						Why are there three codes? Well, despite most of this harking back to British Rail days, the systems are there for different purposes. CRS codes are just used for reserving seats and booking tickets. TIPLOC codes are used to work out timetables. STANOX codes are less numerous than TIPLOCs, and much closer to the "bare metal" of the system, as it were. There's other codes too, but this is complicated enough.
-					</aside>
-				</section>
+                        <p>Why are there three codes? Well, despite most of this harking back to British Rail days, the systems are there for different purposes.</p>
+                        <p>CRS codes are just used for reserving seats and booking tickets.</p>
+                        <p>TIPLOC codes are used to define timetables.</p>
+                        <p>STANOX codes are less numerous than TIPLOCs, and much closer to the "bare metal" of the system, as it were. There's other codes too, but this is complicated enough.</p>
+                    </aside>
+                </section>
+
+                <img src="foot.png" id="foot" style="border: none; background: none; top: -1000px; display: block; position: absolute; z-index: 100">
+                <section data-state="footstomp">
+                    <h1>STOMP</h1>
+                    <img data-src="https://twemoji.maxcdn.com/2/svg/1f682.svg" style="width: 20%; height: 20%; border: none; background: none;">
+
+                    <aside class="notes">
+                        <p>So a lot of the most interesting feeds use STOMP. If you've ever used RabbitMQ - it's very similar.</p>
+                        <p>There is a range of message queues you can subscribe to, and you get messages pushed out to you constantly. And I mean constantly - these feeds contain...</p>
+                    </aside>
+                </section>
+
+                <section>
+                    <h1>Exciting* amounts of data!</h1>
+
+                    <aside class="notes">
+                        <p>...exciting amounts of data</p>
+
+                        <p>to me.</p>
+                    </aside>
+                </section>
+
+                <section>
+                    <h1>What data?</h1>
+                    <ul>
+                        <li>Train Movements</li>
+                        <li>Cancellations</li>
+                        <li>Trains moving between signals</li>
+                        <li>What the signals are displaying<span class="fragment"> (ish)</span></li>
+                    </ul>
+
+                    <aside class="notes">
+                        to me.
+                    </aside>
+                </section>
+
+                <section>
+                    <h3>Railway Signalling for Beginners</h3>
+
+                    <table>
+                        <tr style="border-bottom: 5px #939598 solid;">
+                            <td style="border-right: 2px white dashed; width: 25%;"><img data-src="https://twemoji.maxcdn.com/2/svg/1f682.svg" style="width: 50%; height: 50%; border: none; background: none; transform: scaleX(-1);"><img data-src="1f6a6-3aspect-green.svg" style="width: 50%; height: 50%; border: none; background: none;"></td>
+                            <td style="border-right: 2px white dashed; width: 25%; text-align: right;"><img data-src="1f6a6-3aspect-yellow.svg" style="width: 50%; height: 50%; border: none; background: none;"></td>
+                            <td style="border-right: 2px white dashed; width: 25%; text-align: right;"><img data-src="1f6a6-3aspect-red.svg" style="width: 50%; height: 50%; border: none; background: none; "></td>
+                            <td style="width: 25%;"><img data-src="https://twemoji.maxcdn.com/2/svg/1f682.svg" style="width: 50%; height: 50%; border: none; background: none; transform: scaleX(-1);"><img data-src="1f6a6-3aspect-green.svg" style="width: 50%; height: 50%; border: none; background: none;"></td>
+                        </tr>
+                    </table>
+
+                    <aside class="notes">
+                        <p>So a quick aside - how does railway signalling work?</p>
+                        <p>At the moment, in the UK we mostly use fixed block signalling, and for the purpose of this, we shall assume that is all that exists.</p>
+                        <p>Trains are identified as being in blocks - similarly sized lengths of track the entry of which is guarded by a signal.</p>
+                        <p>The fundamental rule of railway signalling is that only one train can occupy each block at a time.</p>
+                        <p>Trains are big and heavy, and take a long time to stop. So they are given warning - if a signal is at red, the previous signal will be at yellow in order to give the driver enough time to stop the train.</p>
+                    </aside>
+                </section>
+
+                <section>
+                    <h3>Railway Signalling for Beginners</h3>
+
+                    <table>
+                        <tr style="border-bottom: 5px #939598 solid;">
+                            <td style="border-right: 2px white dashed; width: 20%;"><img data-src="https://twemoji.maxcdn.com/2/svg/1f682.svg" style="width: 50%; height: 50%; border: none; background: none; transform: scaleX(-1);"><img data-src="1f6a6-4aspect-green.svg" style="width: 50%; height: 50%; border: none; background: none;"></td>
+                            <td style="border-right: 2px white dashed; width: 20%; text-align: right;"><img data-src="1f6a6-4aspect-doubleyellow.svg" style="width: 50%; height: 50%; border: none; background: none;"></td>
+                            <td style="border-right: 2px white dashed; width: 20%; text-align: right;"><img data-src="1f6a6-4aspect-yellow.svg" style="width: 50%; height: 50%; border: none; background: none;"></td>
+                            <td style="border-right: 2px white dashed; width: 20%; text-align: right;"><img data-src="1f6a6-4aspect-red.svg" style="width: 50%; height: 50%; border: none; background: none; "></td>
+                            <td style="width: 20%;"><img data-src="https://twemoji.maxcdn.com/2/svg/1f682.svg" style="width: 50%; height: 50%; border: none; background: none; transform: scaleX(-1);"><img data-src="1f6a6-4aspect-green.svg" style="width: 50%; height: 50%; border: none; background: none;"></td>
+                        </tr>
+                    </table>
+
+                    <aside class="notes">
+                        <p>On express lines, where the trains might take even longer to stop, they actually have extra warning - a double yellow signal.</p>
+                        <p>They've even gone further than this in the past and had flashing green signals which mean the next signal is green.</p>
+                    </aside>
+                </section>
+
+                <section>
+                    <h3>Railway Signalling for Beginners</h3>
+
+                    <table>
+                        <tr style="border-bottom: 5px #939598 solid;">
+                            <td style="border-right: 2px white dashed; width: 25%;">
+                                <img data-src="https://twemoji.maxcdn.com/2/svg/1f682.svg" style="width: 50%; height: 50%; border: none; background: none; transform: scaleX(-1);">
+                                1E23
+                                <img data-src="1f6a6-3aspect-green.svg" style="width: 50%; height: 50%; border: none; background: none;">
+                                TD1234
+                            </td>
+                            <td style="border-right: 2px white dashed; width: 25%; text-align: right;"><img data-src="1f6a6-3aspect-yellow.svg" style="width: 50%; height: 50%; border: none; background: none;"></td>
+                            <td style="border-right: 2px white dashed; width: 25%; text-align: right;"><img data-src="1f6a6-3aspect-red.svg" style="width: 50%; height: 50%; border: none; background: none; "></td>
+                            <td style="width: 25%;"><img data-src="https://twemoji.maxcdn.com/2/svg/1f682.svg" style="width: 50%; height: 50%; border: none; background: none; transform: scaleX(-1);"><img data-src="1f6a6-3aspect-green.svg" style="width: 50%; height: 50%; border: none; background: none;"></td>
+                        </tr>
+                    </table>
+
+                    <aside class="notes">
+                        <p>Each of these signals has an area code - which is based on the signal box that controls it - and a unique identifier. The train has its own reporting code too.</p>
+                    </aside>
+                </section>
 
 
+            </div>
 
-        <img src="foot.png" id="foot" style="border: none; box-shadow: none; background: none; top: -1000px; display: block; position: absolute; z-index: 100">
-				<section data-state="footstomp">
+        </div>
 
-          <h1>STOMP</h1>
-          <img data-src="https://twemoji.maxcdn.com/2/svg/1f682.svg" style="width: 20%; height: 20%; border: none; box-shadow: none; background: none;">
+        <script src="reveal.js/lib/js/head.min.js"></script>
+        <script src="reveal.js/js/reveal.js"></script>
 
-					<aside class="notes">
-            So a lot of the most interesting feeds use STOMP. If you've ever used RabbitMQ - it's very similar. There is a range of message queues you can subscribe to, and you get messages pushed out to you constantly. And I mean constantly - these feeds contain
-					</aside>
-				</section>
+        <script>
 
-        <section>
-          <h1>Exciting* amounts of data!</h1>
+            // More info https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                controls: false,
+                progress: false,
+                history: true,
+                center: true,
 
-          <aside class="notes">
-            exciting amounts of data
+                transition: 'fade', // none/fade/slide/convex/concave/zoom
 
-            to me.
-          </aside>
-        </section>
-
-        <section>
-          <h1>What data?</h1>
-          <ul>
-            <li>Train Movements</li>
-            <li>Cancellations</li>
-            <li>Trains moving between signals</li>
-            <li>What the signals are displaying<span class="fragment"> (ish)</span></li>
-          </ul>
-
-          <aside class="notes">
-            to me.
-          </aside>
-        </section>
-
-
-			</div>
-
-		</div>
-
-		<script src="reveal.js/lib/js/head.min.js"></script>
-		<script src="reveal.js/js/reveal.js"></script>
-
-		<script>
-
-			// More info https://github.com/hakimel/reveal.js#configuration
-			Reveal.initialize({
-				controls: false,
-				progress: false,
-				history: true,
-				center: true,
-
-				transition: 'fade', // none/fade/slide/convex/concave/zoom
-
-				// More info https://github.com/hakimel/reveal.js#dependencies
-				dependencies: [
-					{ src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
-					{ src: 'reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-					{ src: 'reveal.js/plugin/zoom-js/zoom.js', async: true },
-					{ src: 'reveal.js/plugin/notes/notes.js', async: true }
-				]
-			});
+                // More info https://github.com/hakimel/reveal.js#dependencies
+                dependencies: [
+                    { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: 'reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true },
+                    { src: 'reveal.js/plugin/notes/notes.js', async: true }
+                ]
+            });
 
       var footPos;
 
@@ -792,5 +870,5 @@ LTSWANSEA 1542 15422     TF       </code></pre>
         raiseFoot();
       }, false );
     </script>
-	</body>
+    </body>
 </html>

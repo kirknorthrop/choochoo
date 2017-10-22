@@ -30,7 +30,7 @@ I consider that using a brief extract of this material is covered under the fair
 
 Applies to all files that are not included modules or explicitly part of another licence.
 
-Copyright (C) 2017 Kirk Northrop. All Rights Reserved.
+Copyright (C) 2014-2017 Kirk Northrop. All Rights Reserved.
 
 
 ### Included modules

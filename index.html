@@ -86,9 +86,7 @@
                 </section>
 
                 <section>
-                    <p>
-                        <img data-src="IMG_1168.jpg" style="width: 40%; height: 40%; border: none;">
-                    </p>
+                    <img class="stretch" data-src="IMG_1168.jpg" style="border: none;">
 
                     <aside class="notes">
                         <p>So why am I interested in this, you ask? My granddad was a signal engineer for most of his working life, and when I was little we used to go for walks alongside the railway.</p>
@@ -543,9 +541,7 @@
 
 
                 <section>
-                    <p>
-                        <img data-src="IMG_7090.JPG" style="border: none;">
-                    </p>
+                    <img class="stretch" data-src="IMG_7090.JPG" style="border: none;">
 
                     <aside class="notes">
                         <p>...this device using a Pi Zero W and Pimoroni's wonderful inkyphat that sits in my hallway telling me when the next trains are coming at my local station.</p>
@@ -556,9 +552,7 @@
 
 
                 <section>
-                    <p>
-                        <img data-src="wttdis149p40.png" style="width: 25%; height: 25%; border: none;">
-                    </p>
+                    <img class="stretch" data-src="wttdis149p40.png" style="border: none;">
 
                     <aside class="notes">
                         <p>I'm not going to say any more about TfL because their data is easy to access. Timetables for the tube are more complicated, and yes contrary to popular belief the tube does run to a very strict timetable, of which there's an example on the screen.</p>
@@ -657,7 +651,7 @@ LTSWANSEA 1542 15422     TF       </code></pre>
 
                     <aside class="notes">
                         <p>This is a lot simpler than it looks - just chop the lines up into pieces of the specified length and match it to the spec.</p>
-                        <p>I'll skim over this because there's a full and very detailed specification online which I've linked to in the slides.</p>
+                        <p>I'll skim over this because there's a full and very detailed specification online however, in very poor timing news, they've just redone their website and the PDF has disappeared. I've contacted them to ask them to put it back, and I'll update the link in the GitHub repo when it is back.</p>
                     </aside>
                 </section>
 
@@ -738,7 +732,99 @@ LTSWANSEA 1542 15422     TF       </code></pre>
                     </ul>
 
                     <aside class="notes">
-                        to me.
+                        <p>So what sorts of data do we have? Well, we can find out when trains move between timing points, which is the sort of thing you'll be used to seeing online if you've ever used one of the open data led railway times sites.</p>
+                        <p>We can also find when and more interestingly why trains are cancelled.</p>
+                        <p>But if we really dig into the data, we can track a particular train moving between signals, and even what the signals themselves are displaying. Ish.</p>
+                    </aside>
+                </section>
+
+                <section>
+                    <h2>A simple Python STOMP client</h2>
+                    <p>Using stomp.py v4</p>
+
+                    <aside class="notes">
+                        <p>So let's take a quick look at how easy it is to get things from STOMP.</p>
+                        <p>We'll be using stomp.py, which isn't the most pythonic of libraries, but it does at least work - I had a lot of trouble finding a working library when I started writing this stuff four years ago.</p>
+                        <p>All the following code is on GitHub, and to use it you'll also need to sign up for a Network Rail open data account, again, the link is in the repo.</p>
+                    </aside>
+                </section>
+
+
+                <section>
+                    <h2>A Python STOMP client</h2>
+<pre><code data-trim data-noescape>class RailListener(stomp.ConnectionListener):
+    def on_error(self, headers, message):
+        print('error: %s' % message)
+
+    def on_message(self, header, message):
+        messages = json.loads(message)
+        print(header)
+        print("\t%d bytes" % len(message))</code></pre>
+
+                    <aside class="notes">
+                        <p>So we need to set up a simple RailListener class. This adds a couple of methods - a very simple error handler and a very simple message handler.</p>
+                        <p>You can see that I've left the json.loads in here just to show you where the messages are.</p>
+                        <p>The messages variable will now hold a list of dicts, each of which will contain a message about the railway network that we can parse later.</p>
+                    </aside>
+                </section>
+
+                <section>
+                    <h2>A Python STOMP client</h2>
+<pre><code>conn = stomp.Connection(host_and_ports=[('datafeeds.networkrail.co.uk', 61618)])
+conn.set_listener('', RailListener())
+conn.start()
+conn.connect(config.NR_USERNAME, config.NR_PASSWORD, wait=True)
+conn.subscribe(destination='/topic/TRAIN_MVT_ALL_TOC', id='MVT', ack='auto')</code></pre>
+
+                    <aside class="notes">
+                        <p>These few lines just setup a connection to Network Rail, and subscribe to a topic.</p>
+                        <p>You can see that in this case I've subscribed to the Train Movement feed for all of the operators in the UK. Needless to say, this brings back a large amount of data, and you might want to start off with just one area.</p>
+                    </aside>
+                </section>
+
+                <section>
+                    <h2>A Python STOMP client</h2>
+<pre><code data-trim data-noescape>try:
+    while True:
+        time.sleep(5)
+except Exception as e:
+    print(e)
+    conn.disconnect()</code></pre>
+
+                    <aside class="notes">
+                        <p>And then in this very non-pythonic code, you can see that we have a while loop - this pauses just to avoid flooding the server with requests - it will store messages in the queue for a minute or so.</p>
+                        <p>And if there is an error, or we kill the script, it will disconnect cleanly from the server.</p>
+                        <p>There are many ways of writing this code, this is just the shortest.</p>
+                    </aside>
+                </section>
+
+                <section>
+                    <h2>So what do you get?</h2>
+<pre><code>{
+    "CA_MSG": {
+        "to": "0479",
+        "time": "1508789194000",
+        "area_id": "TB",
+        "msg_type": "CA",
+        "from": "0477",
+        "descr": "1J52"
+    }
+}
+</code></pre>
+
+                    <aside class="notes">
+                        <p>So after all that, we get a lot of messages containing little nuggets of data.</p>
+                        <p>This one tells us that train 1J52 - which was the 2032 service from London Victoria to Southampton Central and Bognor Regis on Monday - passed from signal TB0477 to signal TB0479 at 2106 and 34 seconds.</p>
+                        <p>The best part about this seemingly useless bit of information is that it relates to the movement of a real live actual 200 ton train.</p>
+                        <p>I think this signal is somewhere near Merstham in Surrey, and if we were sat at that station, we'd have seen that train go through.</p>
+                    </aside>
+                </section>
+
+                <section>
+                    <p>Yes Kirk, it's all very well saying that it passed from signal TB 0477 to signal TB 0479 at 21:06:34, but I still don't really know what that means</p>
+
+                    <aside class="notes">
+                        <p>If I've blinded you with numbers and letters there, let's take a very quick aside to look at how railway signalling works.</p>
                     </aside>
                 </section>
 
@@ -755,7 +841,6 @@ LTSWANSEA 1542 15422     TF       </code></pre>
                     </table>
 
                     <aside class="notes">
-                        <p>So a quick aside - how does railway signalling work?</p>
                         <p>At the moment, in the UK we mostly use fixed block signalling, and for the purpose of this, we shall assume that is all that exists.</p>
                         <p>Trains are identified as being in blocks - similarly sized lengths of track the entry of which is guarded by a signal.</p>
                         <p>The fundamental rule of railway signalling is that only one train can occupy each block at a time.</p>
@@ -778,7 +863,6 @@ LTSWANSEA 1542 15422     TF       </code></pre>
 
                     <aside class="notes">
                         <p>On express lines, where the trains might take even longer to stop, they actually have extra warning - a double yellow signal.</p>
-                        <p>They've even gone further than this in the past and had flashing green signals which mean the next signal is green.</p>
                     </aside>
                 </section>
 
@@ -801,8 +885,69 @@ LTSWANSEA 1542 15422     TF       </code></pre>
 
                     <aside class="notes">
                         <p>Each of these signals has an area code - which is based on the signal box that controls it - and a unique identifier. The train has its own reporting code too.</p>
+                        <p>So in our previous example, the area code was TB, which is Three Bridges in West Sussex.</p>
+                        <p>The train reporting code is your link back to the timetable, although it's not unique except on a line.</p>
                     </aside>
                 </section>
+
+                <section>
+                    <img class="stretch" data-src="IMG_1225.jpg" style="border: none;">
+
+                    <aside class="notes">
+                        <p>You can see the signal numbers on a plate below each signal - here's an example of signal Y226 at York Station.</p>
+                        <p>And so you can have a look next time you get on a train, write a few numbers down and then come back and watch the trains go by in JSON format instead.</p>
+                    </aside>
+                </section>
+
+                <section>
+                    <p>Also you said something about being able to see what the signals were displaying?</p>
+
+                    <aside class="notes">
+                        <p>So. Can you see what the signals are displaying. Well, yes. And no.</p>
+                    </aside>
+                </section>
+
+                <section>
+<pre><code>{
+    "SF_MSG": {
+        "time": "1508789194000",
+        "area_id": "YO",
+        "address": "13",
+        "msg_type": "SF",
+        "data": "DF"
+    }
+}</code></pre>
+
+                    <aside class="notes">
+                        <p>Here's some data from the Yoker signalling centre near Glasgow.</p>
+                        <p>The data appears as DF, but this is hexadecimal, what we're actually seeing here is:</p>
+                    </aside>
+                </section>
+
+                <section>
+<pre><code>
+    Data byte 13: 1101 1111
+</code></pre>
+
+                    <aside class="notes">
+                        <p>Each bit means something.</p>
+                        <p>Could be a signal being at red.</p>
+                        <p>Could be a level crossing being shut.</p>
+                        <p>Could be a route being set.</p>
+                        <p>We don't know.</p>
+                        <p>We can try and work it out, and some people have done some brilliant work on this front, and you could too!</p>
+                    </aside>
+                </section>
+
+                <section>
+                    <H1>OPEN TRAIN TIMES TRACK MAP</H1>
+
+                    <aside class="notes">
+                        <p>If you do work it out, then you can end up with brilliant sites like this one at Open Train Times, which shows a mimic panel of all the signals and trains in an area.</p>
+                        <p>This has all been created using the open data, although very much not by me, and a number of railway staff have been seen using it!</p>
+                    </aside>
+                </section>
+
 
 
             </div>
@@ -822,6 +967,10 @@ LTSWANSEA 1542 15422     TF       </code></pre>
                 center: true,
 
                 transition: 'fade', // none/fade/slide/convex/concave/zoom
+
+                width: 1366,
+                height: 768,
+                margin: 0.1,
 
                 // More info https://github.com/hakimel/reveal.js#dependencies
                 dependencies: [

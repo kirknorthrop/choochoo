@@ -1,10 +1,18 @@
-# choochoo
+# Choo Choo! All aboard the Data Train!
+
+A talk initially given at PyCon UK 2017 about UK rail data, where to find it and a primer of where to use it.
+
+## Resources
+
+### Stomp Client
+
+
 
 ## Licenses
 
 ### Emoji images
 
-Applies to Emoji linked from https://twemoji.maxcdn.com/
+Applies to Emoji linked from https://twemoji.maxcdn.com/ and SVG files starting 1f6a6
 
 Copyright (C) 2017 Twitter, Inc and other contributors
 
@@ -31,7 +39,6 @@ I consider that using a brief extract of this material is covered under the fair
 Applies to all files that are not included modules or explicitly part of another licence.
 
 Copyright (C) 2014-2017 Kirk Northrop. All Rights Reserved.
-
 
 ### Included modules
 

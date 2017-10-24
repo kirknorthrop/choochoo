@@ -43,8 +43,8 @@
                 <section>
                     <h1>Choo Choo!</h1>
                     <h2>All aboard the Data Train!</h2>
-                    <img data-src="https://twemoji.maxcdn.com/2/svg/1f686.svg" style="width: 30%; height: 30%; border: none; background: none;">
-                    <img data-src="https://twemoji.maxcdn.com/2/svg/1f687.svg" style="width: 30%; height: 30%; border: none; background: none;">
+                    <img data-src="https://twemoji.maxcdn.com/2/svg/1f686.svg" style="width: 25%; height: 25%; border: none; background: none; box-shadow: none;">
+                    <img data-src="https://twemoji.maxcdn.com/2/svg/1f687.svg" style="width: 25%; height: 25%; border: none; background: none; box-shadow: none;">
                     <p>Kirk Northrop</p>
 
                     <aside class="notes">
@@ -62,26 +62,26 @@
 
                     <aside class="notes">
                         <p>What's that coming over the hill?</p>
-                        <p>It's 2P31, the 0927 service to Penarth</p>
+                        <p>It's 2P31, the 0927 service to Penarth</p>f
                         <p>You've probably heard a lot about Open Data. And you've thought "I'd like to get me some of that". And there's quite a big overlap in interest between programming and trains. So let's see what it's all about...</p>
                     </aside>
                 </section>
 
                 <section>
                     <p>
-                        <img data-src="https://twemoji.maxcdn.com/2/svg/1f682.svg" style="width: 20%; height: 20%; padding: 1em; border: none; background: none;">
-                        <img data-src="https://twemoji.maxcdn.com/2/svg/1f440.svg" style="width: 20%; height: 20%; padding: 1em; border: none; background: none;">
-                        <img data-src="https://twemoji.maxcdn.com/2/svg/1f4dd.svg" style="width: 20%; height: 20%; padding: 1em; border: none; background: none;">
+                        <img data-src="https://twemoji.maxcdn.com/2/svg/1f682.svg" style="width: 15%; height: 15%; padding: 1em; border: none; background: none; box-shadow: none;">
+                        <img data-src="https://twemoji.maxcdn.com/2/svg/1f440.svg" style="width: 15%; height: 15%; padding: 1em; border: none; background: none; box-shadow: none;">
+                        <img data-src="https://twemoji.maxcdn.com/2/svg/1f4dd.svg" style="width: 15%; height: 15%; padding: 1em; border: none; background: none; box-shadow: none;">
                     </p>
                     <p>
-                        <img data-src="https://twemoji.maxcdn.com/2/svg/1f645.svg" style="width: 20%; height: 20%; padding: 1em; border: none; background: none;">
+                        <img data-src="https://twemoji.maxcdn.com/2/svg/1f645.svg" style="width: 15%; height: 15%; padding: 1em; border: none; background: none; box-shadow: none;">
                     </p>
 
                     <aside class="notes">
                         <p>Just a couple of notes - firstly, this talk is about open data, not big data.</p>
                         <p>There is a lot of data, but not in a big data way.</p>
                         <p>Also, nothing in this talk will let you find out anything much about the trains themselves, just what they are up to. Personally, I have little interest in the metal boxes on wheels. Some people get excited about steam trains, I get excited about DTG-R signalling systems.</p>
-                        <p>See me as the Fat Controller wondering where all his trains are.</p>
+                        <p>See me more as the Fat Controller wondering where all his trains are.</p>
                     </aside>
                 </section>
 
@@ -96,7 +96,10 @@
                 </section>
 
                 <section>
-                    <h1>Speeditalk™</h1>
+                    <img data-src="https://twemoji.maxcdn.com/2/svg/1f3c1.svg" style="width: 15%; height: 15%; padding: 1em; border: none; background: none; box-shadow: none;">
+                    <img data-src="https://twemoji.maxcdn.com/2/svg/1f947.svg" style="width: 15%; height: 15%; padding: 1em; border: none; background: none; box-shadow: none;">
+                    <img data-src="https://twemoji.maxcdn.com/2/svg/1f4a8.svg" style="width: 15%; height: 15%; padding: 1em; border: none; background: none; box-shadow: none;">
+                    <img data-src="https://twemoji.maxcdn.com/2/svg/23e9.svg" style="width: 15%; height: 15%; padding: 1em; border: none; background: none; box-shadow: none;">
 
                     <aside class="notes">
                         <p>There's a lot to get through here, and I want to help you understand how it works and what access we have rather than going through code in much detail, so some stuff might go past quite quickly.</p>
@@ -510,14 +513,32 @@
 
                 <section>
                     <h2>What's in the data?</h2>
-                    <ul>
-                        <li>destinationNaptanId: 940GZZLUHR4</li>
-                        <li>destinationName: Heathrow Terminal 4 Underground Station</li>
-                        <li>expectedArrival: 2017-10-16T20:20:29Z</li>
-                        <li>platformName: Westbound - Platform 1</li>
-                        <li>currentLocation: Approaching Barons Court</li>
-                        <li>vehicleId: 364</li>
-                    </ul>
+                    <table>
+                        <tr>
+                            <td>destinationNaptanId</td>
+                            <td>940GZZLUHR4</td>
+                        </tr>
+                        <tr>
+                            <td>destinationName</td>
+                            <td>Heathrow Terminal 4 Underground Station</td>
+                        </tr>
+                        <tr>
+                            <td>expectedArrival</td>
+                            <td>2017-10-16T20:20:29Z</td>
+                        </tr>
+                        <tr>
+                            <td>platformName</td>
+                            <td>Westbound - Platform 1</td>
+                        </tr>
+                        <tr>
+                            <td>currentLocation</td>
+                            <td>Approaching Barons Court</td>
+                        </tr>
+                        <tr>
+                            <td>vehicleId</td>
+                            <td>364</td>
+                        </tr>
+                    </table>
 
                     <aside class="notes">
                         <p>So what sort of data do we have? Well, we have both the NaPTAN and the name of the train's destination.</p>
@@ -546,7 +567,26 @@
                     <aside class="notes">
                         <p>...this device using a Pi Zero W and Pimoroni's wonderful inkyphat that sits in my hallway telling me when the next trains are coming at my local station.</p>
                         <p>I did most of it in a couple of hours, and the majority of that time was spent getting the display to look nice.</p>
-                        <p>So you can very easily get hold of this data, and Python is a perfect language to create something like this easily with, and even better if you have a Raspberry Pi sitting idle.</p>
+                        <p>So you can very easily get hold of this data...</p>
+                    </aside>
+                </section>
+
+                <section>
+<pre><code># Get next trains
+r = requests.get('https://api.tfl.gov.uk/StopPoint/910GWATFDHS/Arrivals')
+
+trains = []
+
+for train in r.json():
+    if train['destinationNaptanId'] == '910GEUSTON':
+        train_time = arrow.get(train['expectedArrival']).to('Europe/London')
+        train_mins = (train_time - arrow.now()).seconds / 60
+        trains.append((train_time, train_mins))
+</code></pre>
+
+                    <aside class="notes">
+                        <p>... it's honestly as simple as getting it and then pulling out the destinations and time data you want.</p>
+                        <p>And of course Python is a perfect language to create something like this easily with, and I know many of you will have a Raspberry Pi sitting idle that you've been wondering what you can do with.</p>
                     </aside>
                 </section>
 
@@ -555,7 +595,7 @@
                     <img class="stretch" data-src="wttdis149p40.png" style="border: none;">
 
                     <aside class="notes">
-                        <p>I'm not going to say any more about TfL because their data is easy to access. Timetables for the tube are more complicated, and yes contrary to popular belief the tube does run to a very strict timetable, of which there's an example on the screen.</p>
+                        <p>I'm not going to say any more about TfL because their data is easy to access, and we're in Cardiff and not London. Timetables for the tube are more complicated, and yes contrary to popular belief the tube does run to a very strict timetable, of which there's an example on the screen.</p>
 
                         <p>But unfortunately the method of getting those is way outside the scope of this talk. It's provided in a format called TransXChange, and it's everything you'd expect from a specification designed to be all encompassing and do everything.</p>
                     </aside>
@@ -565,7 +605,7 @@
                     (It's horrible)
 
                     <aside class="notes">
-                        <p>Have a chat to me afterwards if you want to understand more and you love parsing XML documents.</p>
+                        <p>Have a chat to me afterwards if you want to understand more and for some reason you love parsing several hundred megabyte XML documents.</p>
                     </aside>
                 </section>
 
@@ -633,21 +673,56 @@ LTSWANSEA 1542 15422     TF       </code></pre>
                 </section>
 
                 <section>
-                    <p style="font-size: smaller; text-align: left;">
-                        <span style="font-family: monospace">BS</span> - Basic Schedule<br>
-                        <span style="font-family: monospace">N</span> - Record Type<br>
-                        <span style="font-family: monospace">C20057</span> - UID<br>
-                        <span style="font-family: monospace">170522</span> - Start Date - yymmdd<br>
-                        <span style="font-family: monospace">171208</span> - End Date - yymmdd<br>
-                        <span style="font-family: monospace">1111100</span> - Days run - mtwtfss<br>
-                        <span style="font-family: monospace">P</span> - This is a passenger train<br>
-                        <span style="font-family: monospace">XX</span> - An express passenger train to be precise<br>
-                        <span style="font-family: monospace">1B35</span> - Train Identity - used by signallers<br>
-                        <span style="font-family: monospace">6108125375002</span> - More details about stuff<br>
-                        <span style="font-family: monospace">HST</span> - is a High Speed Train<br>
-                        <span style="font-family: monospace">125</span> - Top speed in mph<br>
-                        <span style="font-family: monospace">B S C</span> - Has a buffet, first and standard class seating and you can reserve a seat
-                    </p>
+                    <table style="font-size: smaller;">
+                        <tr>
+                            <td style="font-family: monospace">BS</td>
+                            <td>Basic Schedule</td>
+                        </tr>
+                        <tr>
+                            <td style="font-family: monospace">N</td>
+                            <td>Record Type</td>
+                        </tr>
+                        <tr>
+                            <td style="font-family: monospace">C20057</td>
+                            <td>UID</td>
+                        </tr>
+                        <tr>
+                            <td style="font-family: monospace">170522</td>
+                            <td>Start Date - yymmdd</td>
+                        </tr>
+                        <tr>
+                            <td style="font-family: monospace">171208</td>
+                            <td>End Date - yymmdd</td>
+                        </tr>
+                        <tr>
+                            <td style="font-family: monospace">1111100</td>
+                            <td>Days run - mtwtfss</td>
+                        </tr>
+                        <tr>
+                            <td style="font-family: monospace">PXX</td>
+                            <td>This is an express passenger train</td>
+                        </tr>
+                        <tr>
+                            <td style="font-family: monospace">1B35</td>
+                            <td>Train Identity - used by signallers</td>
+                        </tr>
+                        <tr>
+                            <td style="font-family: monospace">6108125375002</td>
+                            <td>More details about stuff</td>
+                        </tr>
+                        <tr>
+                            <td style="font-family: monospace">HST</td>
+                            <td>is a High Speed Train</td>
+                        </tr>
+                        <tr>
+                            <td style="font-family: monospace">125</td>
+                            <td>Top speed in mph</td>
+                        </tr>
+                        <tr>
+                            <td style="font-family: monospace">B S C</td>
+                            <td>Has a buffet, first and standard class seating and you can reserve a seat</td>
+                        </tr>
+                    </table>
 
                     <aside class="notes">
                         <p>This is a lot simpler than it looks - just chop the lines up into pieces of the specified length and match it to the spec.</p>
@@ -656,16 +731,40 @@ LTSWANSEA 1542 15422     TF       </code></pre>
                 </section>
 
                 <section>
-                    <p style="font-size: smaller; text-align: left;">
-                        <span style="font-family: monospace">LI</span> - Intermediate Location<br>
-                        <span style="font-family: monospace">CRDFCEN</span> - Location ID<br>
-                        <span style="font-family: monospace">1446</span> - Scheduled Arrival<br>
-                        <span style="font-family: monospace">1449</span> - Scheduled Departure<br>
-                        <span style="font-family: monospace">1445</span> - Public Arrival<br>
-                        <span style="font-family: monospace">1447</span> - Public Departure<br>
-                        <span style="font-family: monospace">3</span> - Platform Number<br>
-                        <span style="font-family: monospace">T</span> - Activity - "Stops to take up and set down passengers"<br>
-                    </p>
+                    <table style="font-size: smaller;">
+                        <tr>
+                            <td style="font-family: monospace">LI</td>
+                            <td>Intermediate Location</td>
+                        </tr>
+                        <tr>
+                            <td style="font-family: monospace">CRDFCEN</td>
+                            <td>Location ID</td>
+                        </tr>
+                        <tr>
+                            <td style="font-family: monospace">1446</td>
+                            <td>Scheduled Arrival</td>
+                        </tr>
+                        <tr>
+                            <td style="font-family: monospace">1449</td>
+                            <td>Scheduled Departure</td>
+                        </tr>
+                        <tr>
+                            <td style="font-family: monospace">1445</td>
+                            <td>Public Arrival</td>
+                        </tr>
+                        <tr>
+                            <td style="font-family: monospace">1447</td>
+                            <td>Public Departure</td>
+                        </tr>
+                        <tr>
+                            <td style="font-family: monospace">3</td>
+                            <td>Platform Number</td>
+                        </tr>
+                        <tr>
+                            <td style="font-family: monospace">T</td>
+                            <td>Activity - "Stops to take up and set down passengers"</td>
+                        </tr>
+                    </table>
 
                     <aside class="notes">
                         <p>Here's the record for a station stop. There's a couple of important points to note here. Firstly, you'll note that there's two sets of times.</p>
@@ -674,7 +773,7 @@ LTSWANSEA 1542 15422     TF       </code></pre>
 
                         <p>The scheduled time is what will actually happen. This is what the driver and the signaller follow.</p>
 
-                        <p>The other important thing is the Location ID. Now the big railway doesn't care about the NaPTANs we discussed earlier. Instead it uses many different types of ID - but we will look at three - the TIPLOC, the STANOX and the CRS code.</p>
+                        <p>The other important thing is the Location ID. Now the big railway doesn't care about the NaPTANs we discussed earlier. Instead it uses many different types of ID just to be difficult.</p>
                     </aside>
                 </section>
 
@@ -697,14 +796,14 @@ LTSWANSEA 1542 15422     TF       </code></pre>
                         <p>Why are there three codes? Well, despite most of this harking back to British Rail days, the systems are there for different purposes.</p>
                         <p>CRS codes are just used for reserving seats and booking tickets.</p>
                         <p>TIPLOC codes are used to define timetables.</p>
-                        <p>STANOX codes are less numerous than TIPLOCs, and much closer to the "bare metal" of the system, as it were. There's other codes too, but this is complicated enough.</p>
+                        <p>STANOX codes are much closer to the "bare metal" of the system, as it were. There's other codes too, but this is complicated enough.</p>
                     </aside>
                 </section>
 
-                <img src="foot.png" id="foot" style="border: none; background: none; top: -1000px; display: block; position: absolute; z-index: 100">
+                <img src="foot.png" id="foot" style="border: none; background: none; box-shadow: none; top: -1000px; display: block; position: absolute; z-index: 100">
                 <section data-state="footstomp">
                     <h1>STOMP</h1>
-                    <img data-src="https://twemoji.maxcdn.com/2/svg/1f682.svg" style="width: 20%; height: 20%; border: none; background: none;">
+                    <img data-src="https://twemoji.maxcdn.com/2/svg/1f682.svg" style="width: 20%; height: 20%; border: none; background: none; box-shadow: none;">
 
                     <aside class="notes">
                         <p>So a lot of the most interesting feeds use STOMP. If you've ever used RabbitMQ - it's very similar.</p>
@@ -833,10 +932,10 @@ except Exception as e:
 
                     <table>
                         <tr style="border-bottom: 5px #939598 solid;">
-                            <td style="border-right: 2px white dashed; width: 25%;"><img data-src="https://twemoji.maxcdn.com/2/svg/1f682.svg" style="width: 50%; height: 50%; border: none; background: none; transform: scaleX(-1);"><img data-src="1f6a6-3aspect-green.svg" style="width: 50%; height: 50%; border: none; background: none;"></td>
-                            <td style="border-right: 2px white dashed; width: 25%; text-align: right;"><img data-src="1f6a6-3aspect-yellow.svg" style="width: 50%; height: 50%; border: none; background: none;"></td>
-                            <td style="border-right: 2px white dashed; width: 25%; text-align: right;"><img data-src="1f6a6-3aspect-red.svg" style="width: 50%; height: 50%; border: none; background: none; "></td>
-                            <td style="width: 25%;"><img data-src="https://twemoji.maxcdn.com/2/svg/1f682.svg" style="width: 50%; height: 50%; border: none; background: none; transform: scaleX(-1);"><img data-src="1f6a6-3aspect-green.svg" style="width: 50%; height: 50%; border: none; background: none;"></td>
+                            <td style="border-right: 2px white dashed; width: 25%;"><img data-src="https://twemoji.maxcdn.com/2/svg/1f682.svg" style="width: 50%; height: 50%; border: none; background: none; box-shadow: none; transform: scaleX(-1);"><img data-src="1f6a6-3aspect-green.svg" style="width: 50%; height: 50%; border: none; background: none; box-shadow: none;"></td>
+                            <td style="border-right: 2px white dashed; width: 25%; text-align: right;"><img data-src="1f6a6-3aspect-yellow.svg" style="width: 50%; height: 50%; border: none; background: none; box-shadow: none;"></td>
+                            <td style="border-right: 2px white dashed; width: 25%; text-align: right;"><img data-src="1f6a6-3aspect-red.svg" style="width: 50%; height: 50%; border: none; background: none; box-shadow: none; "></td>
+                            <td style="width: 25%;"><img data-src="https://twemoji.maxcdn.com/2/svg/1f682.svg" style="width: 50%; height: 50%; border: none; background: none; box-shadow: none; transform: scaleX(-1);"><img data-src="1f6a6-3aspect-green.svg" style="width: 50%; height: 50%; border: none; background: none; box-shadow: none;"></td>
                         </tr>
                     </table>
 
@@ -853,11 +952,11 @@ except Exception as e:
 
                     <table>
                         <tr style="border-bottom: 5px #939598 solid;">
-                            <td style="border-right: 2px white dashed; width: 20%;"><img data-src="https://twemoji.maxcdn.com/2/svg/1f682.svg" style="width: 50%; height: 50%; border: none; background: none; transform: scaleX(-1);"><img data-src="1f6a6-4aspect-green.svg" style="width: 50%; height: 50%; border: none; background: none;"></td>
-                            <td style="border-right: 2px white dashed; width: 20%; text-align: right;"><img data-src="1f6a6-4aspect-doubleyellow.svg" style="width: 50%; height: 50%; border: none; background: none;"></td>
-                            <td style="border-right: 2px white dashed; width: 20%; text-align: right;"><img data-src="1f6a6-4aspect-yellow.svg" style="width: 50%; height: 50%; border: none; background: none;"></td>
-                            <td style="border-right: 2px white dashed; width: 20%; text-align: right;"><img data-src="1f6a6-4aspect-red.svg" style="width: 50%; height: 50%; border: none; background: none; "></td>
-                            <td style="width: 20%;"><img data-src="https://twemoji.maxcdn.com/2/svg/1f682.svg" style="width: 50%; height: 50%; border: none; background: none; transform: scaleX(-1);"><img data-src="1f6a6-4aspect-green.svg" style="width: 50%; height: 50%; border: none; background: none;"></td>
+                            <td style="border-right: 2px white dashed; width: 20%;"><img data-src="https://twemoji.maxcdn.com/2/svg/1f682.svg" style="width: 50%; height: 50%; border: none; background: none; box-shadow: none; transform: scaleX(-1);"><img data-src="1f6a6-4aspect-green.svg" style="width: 50%; height: 50%; border: none; background: none; box-shadow: none;"></td>
+                            <td style="border-right: 2px white dashed; width: 20%; text-align: right;"><img data-src="1f6a6-4aspect-doubleyellow.svg" style="width: 50%; height: 50%; border: none; background: none; box-shadow: none;"></td>
+                            <td style="border-right: 2px white dashed; width: 20%; text-align: right;"><img data-src="1f6a6-4aspect-yellow.svg" style="width: 50%; height: 50%; border: none; background: none; box-shadow: none;"></td>
+                            <td style="border-right: 2px white dashed; width: 20%; text-align: right;"><img data-src="1f6a6-4aspect-red.svg" style="width: 50%; height: 50%; border: none; background: none; box-shadow: none; "></td>
+                            <td style="width: 20%;"><img data-src="https://twemoji.maxcdn.com/2/svg/1f682.svg" style="width: 50%; height: 50%; border: none; background: none; box-shadow: none; transform: scaleX(-1);"><img data-src="1f6a6-4aspect-green.svg" style="width: 50%; height: 50%; border: none; background: none; box-shadow: none;"></td>
                         </tr>
                     </table>
 
@@ -872,14 +971,14 @@ except Exception as e:
                     <table>
                         <tr style="border-bottom: 5px #939598 solid;">
                             <td style="border-right: 2px white dashed; width: 25%;">
-                                <img data-src="https://twemoji.maxcdn.com/2/svg/1f682.svg" style="width: 50%; height: 50%; border: none; background: none; transform: scaleX(-1);">
+                                <img data-src="https://twemoji.maxcdn.com/2/svg/1f682.svg" style="width: 50%; height: 50%; border: none; background: none; box-shadow: none; transform: scaleX(-1);">
                                 1E23
-                                <img data-src="1f6a6-3aspect-green.svg" style="width: 50%; height: 50%; border: none; background: none;">
+                                <img data-src="1f6a6-3aspect-green.svg" style="width: 50%; height: 50%; border: none; background: none; box-shadow: none;">
                                 TD1234
                             </td>
-                            <td style="border-right: 2px white dashed; width: 25%; text-align: right;"><img data-src="1f6a6-3aspect-yellow.svg" style="width: 50%; height: 50%; border: none; background: none;"></td>
-                            <td style="border-right: 2px white dashed; width: 25%; text-align: right;"><img data-src="1f6a6-3aspect-red.svg" style="width: 50%; height: 50%; border: none; background: none; "></td>
-                            <td style="width: 25%;"><img data-src="https://twemoji.maxcdn.com/2/svg/1f682.svg" style="width: 50%; height: 50%; border: none; background: none; transform: scaleX(-1);"><img data-src="1f6a6-3aspect-green.svg" style="width: 50%; height: 50%; border: none; background: none;"></td>
+                            <td style="border-right: 2px white dashed; width: 25%; text-align: right;"><img data-src="1f6a6-3aspect-yellow.svg" style="width: 50%; height: 50%; border: none; background: none; box-shadow: none;"></td>
+                            <td style="border-right: 2px white dashed; width: 25%; text-align: right;"><img data-src="1f6a6-3aspect-red.svg" style="width: 50%; height: 50%; border: none; background: none; box-shadow: none; "></td>
+                            <td style="width: 25%;"><img data-src="https://twemoji.maxcdn.com/2/svg/1f682.svg" style="width: 50%; height: 50%; border: none; background: none; box-shadow: none; transform: scaleX(-1);"><img data-src="1f6a6-3aspect-green.svg" style="width: 50%; height: 50%; border: none; background: none; box-shadow: none;"></td>
                         </tr>
                     </table>
 
@@ -945,6 +1044,21 @@ except Exception as e:
                     <aside class="notes">
                         <p>If you do work it out, then you can end up with brilliant sites like this one at Open Train Times, which shows a mimic panel of all the signals and trains in an area.</p>
                         <p>This has all been created using the open data, although very much not by me, and a number of railway staff have been seen using it!</p>
+                    </aside>
+                </section>
+
+                 <section>
+                    <h1>Slides, code, links</h1>
+                    <br>
+                    <p style="font-size: 2em;">http://bit.ly/pythonchoochoo</p>
+                    <br>
+                    <p>https://github.com/kirknorthrop/choochoo</p>
+
+                    <aside class="notes">
+                        <p>All the slides, code and some useful links are on the GitHub repo for this talk, you can access that at bit.ly/pythonchoochoo - both those links go to the same place.</p>
+                        <p>I'm trying to release as much rail related code as I can under open source, but it's taking time to get there.</p>
+                        <p>If you've ever decided to release your own poorly hacked together messy code under open source, you'll understand why it's taking a while.</p>
+                        <p>The Raspberry Pi train information board I showed earlier is also open source and on my GitHub if you want to build one.</p>
                     </aside>
                 </section>
 

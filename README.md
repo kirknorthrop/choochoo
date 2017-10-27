@@ -6,7 +6,37 @@ A talk initially given at PyCon UK 2017 about UK rail data, where to find it and
 
 ### Stomp Client
 
+See /stomp-client directory
 
+### eInk Train Info Display
+
+https://github.com/kirknorthrop/einktube
+
+### CIF Format
+
+This is not the link I want - I'm working to get them to put it back online. But it does explain some of it.
+
+https://www.raildeliverygroup.com/files/Publications/services/rsp/RSPS5047-01-00_National_Routeing_Guide_Data_FeedSpecification.pdf
+
+### Rail Data Wiki
+
+http://nrodwiki.rockshore.net/index.php/Main_Page
+
+### Open Train Times map for Cardiff Central
+
+http://www.opentraintimes.com/maps/signalling/cardiff#T_CRDFCEN
+
+### Network Rail data feeds
+
+https://datafeeds.networkrail.co.uk/ntrod/login
+
+### Darwin
+
+http://www.nationalrail.co.uk/100296.aspx
+
+### TfL Data Feeds
+
+https://api.tfl.gov.uk/
 
 ## Licenses
 

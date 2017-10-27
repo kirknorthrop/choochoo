@@ -48,7 +48,7 @@
                     <p>Kirk Northrop</p>
 
                     <aside class="notes">
-                        <p>Good morning conference - I'm Kirk and I'm going to talk to you about how we can use open data to see what trains are up to.</p>
+                        <p>Good morning - I'm Kirk Northrop and I'm going to talk to you about how we can use open data to see what trains are up to.</p>
 
                         <p>Or as the band The Automatic might have put it...</p>
                     </aside>
@@ -62,8 +62,8 @@
 
                     <aside class="notes">
                         <p>What's that coming over the hill?</p>
-                        <p>It's 2P31, the 0927 service to Penarth</p>f
-                        <p>You've probably heard a lot about Open Data. And you've thought "I'd like to get me some of that". And there's quite a big overlap in interest between programming and trains. So let's see what it's all about...</p>
+                        <p>It's 2P31, the 0927 service to Penarth</p>
+                        <p>You've probably heard a lot about Open Data. And you've thought "how do I get some of that". And as there's quite a big overlap in interest between programming and trains, let's see what it's all about...</p>
                     </aside>
                 </section>
 
@@ -152,9 +152,10 @@
                     </ul></p>
 
                     <aside class="notes">
-                        So. TfL have a unified API which has very poor documentation but is quite easy to use. TfL's live train data is easy to get hold of, and as it's JSON, it's even easier for us to use in Python. Unfortunately the quality of the data is highly variable and not always reliably available.
+                        <p>So. TfL have a unified API which has very poor documentation but is quite easy to use. TfL's live train data is easy to get hold of, and as it's JSON, it's even easier for us to use in Python.</p>
+                        <p>Unfortunately the quality of the data is highly variable and not always reliably available.</p>
 
-                        For today, we're only interested in what tube trains are up to - Overground, DLR, Trams and Buses are all there if you want them.
+                        <p>For today, we're only interested in what tube trains are up to - Overground, DLR, Trams and Buses are all there if you want them.</p>
                     </aside>
                 </section>
 
@@ -180,11 +181,11 @@
                     </table>
 
                     <aside class="notes">
-                        In the UK, every single stop has what is called a NaPTAN code. This is a National Public Transport Access Node. You might have seen them in URLs, they look like this -->
+                        <p>In the UK, every single stop has what is called a NaPTAN code. This is a National Public Transport Access Node. You might have seen them in URLs, they look like this --></p>
 
-                        Every single bus stop and railway station has one or more of these codes that uniquely identify it. Now the big railways don't care about this at all, but TfL do.
+                        <p>Every single bus stop and railway station has one or more of these codes that uniquely identify it. Now the big railways don't care about this at all, but TfL do.</p>
 
-                        Thankfully, they give us an easy way to look them up.
+                        <p>Thankfully, they give us an easy way to look them up.</p>
                     </aside>
                 </section>
 
@@ -212,9 +213,9 @@
 }</code></pre>
 
                     <aside class="notes">
-                        So we can search for our desired station - I'm using Osterley in West London as an example because it's small and simple.
+                        <p>So we can search for our desired station - I'm using Osterley in West London as an example because it's small and simple.</p>
 
-                        And you can see that we've got back the code, along with some other useful information.
+                        <p>And you can see that we've got back the code, along with some other useful information such as the GPS co-ordinates of the station.</p>
                     </aside>
                 </section>
 
@@ -503,9 +504,9 @@
 ]</code></pre>
 
                     <aside class="notes">
-                        So thanks to the wonders of the internet, let's find out what's going on right now at Osterley.
+                        <p>So thanks to the wonders of the internet, here's what's happening at Osterley. Or what was happening a couple of weeks ago.</p>
 
-                        This becomes somewhat harder to understand once you look at what's happening at a station line Baker Street. But if you know the tube network and you know which data you are after, it's trivially easy.
+                        <p>This becomes somewhat harder to understand once you look at what's happening at a station like Baker Street. But if you know the tube network and you know which data you are after, it's trivially easy.</p>
 
                     </aside>
                 </section>
@@ -541,22 +542,21 @@
                     </table>
 
                     <aside class="notes">
-                        <p>So what sort of data do we have? Well, we have both the NaPTAN and the name of the train's destination.</p>
-                        <p>We can also find out when the train is expected to arrive here - this should be the same as appears on the platform describers but for dull technical reasons probably isn't.</p>
+                        <p>So what sort of data do we have? Well, we have the destination of the train both as the NaPTAN and the English name.</p>
+                        <p>We can also find out when the train is expected to arrive here - this *should* be the same as appears on the platform describers but for dull technical reasons probably isn't.</p>
                         <p>We can also tell which platform it is at, although this can be more accurate at some stations than others.</p>
                         <p>We also have a text string showing where the train is currently.</p>
-                        <p>We also have something called vehicleId - but this refers to what trip the train is doing in the timetable, and nothing related to the actual vehicle.</p>
+                        <p>We also have something called vehicleId - but this refers to the timetable, and nothing related to the actual train.</p>
                     </aside>
                 </section>
 
                 <section>
-                    <h2>Current Trains at Osterley</h2>
-                    <p>TO COME</p>
+                    <img class="stretch" data-src="tubedata.png" style="border: none;">
 
                     <aside class="notes">
-                        And here is that data parsed and presented nicely. You can do much better than just a webpage though, I made...
+                        <p>And here is that data parsed and presented nicely, admittedly on the TfL website. You can do much better than just a webpage though, I made...</p>
 
-                        this device using a Pi Zero W and Pimoroni's wonderful inkyphat that sits in my hallway telling me when the next trains are coming at my local station.
+                        <p>this device using a Pi Zero W and Pimoroni's wonderful inkyphat that sits in my hallway telling me when the next trains are coming at my local station.</p>
                     </aside>
                 </section>
 
@@ -585,8 +585,8 @@ for train in r.json():
 </code></pre>
 
                     <aside class="notes">
-                        <p>... it's honestly as simple as getting it and then pulling out the destinations and time data you want.</p>
-                        <p>And of course Python is a perfect language to create something like this easily with, and I know many of you will have a Raspberry Pi sitting idle that you've been wondering what you can do with.</p>
+                        <p>...it's honestly as simple as getting it and then pulling out the destinations and time data you want.</p>
+                        <p>And of course Python is a perfect language to create something like this easily with, and I know many of you will have a Raspberry Pi sitting idle that you've been looking for a project for.</p>
                     </aside>
                 </section>
 
@@ -595,7 +595,7 @@ for train in r.json():
                     <img class="stretch" data-src="wttdis149p40.png" style="border: none;">
 
                     <aside class="notes">
-                        <p>I'm not going to say any more about TfL because their data is easy to access, and we're in Cardiff and not London. Timetables for the tube are more complicated, and yes contrary to popular belief the tube does run to a very strict timetable, of which there's an example on the screen.</p>
+                        <p>I'm not going to say any more about TfL because their data is easy to access, and we're in Cardiff and not London. Timetables for the tube are more complicated, and contrary to popular belief the tube does run to a very strict timetable, of which there's an example on the screen.</p>
 
                         <p>But unfortunately the method of getting those is way outside the scope of this talk. It's provided in a format called TransXChange, and it's everything you'd expect from a specification designed to be all encompassing and do everything.</p>
                     </aside>
@@ -610,11 +610,24 @@ for train in r.json():
                 </section>
 
                 <section>
+                    <h1>The easy but onerously terms and conditioned way</h1>
+                    <h2>Darwin</h2>
+
+                    <aside class="notes">
+                        <p>So how about the big railway?</p>
+                        <p>There's a system called Darwin - it's reasonably easy to use, but the terms and conditions are a little onerous, so I'm going to skip on for that for now, and we'll do it the hard way.</p>
+                    </aside>
+                </section>
+
+
+
+
+                <section>
                     <h1>CIF</h1>
                     <p><i>(Not a cleaning product)</i></p>
 
                     <aside class="notes">
-                        <p>So how about the big railway? Here we'll start with the timetables. There is an XML feed, but the surprisingly better option is a wonderful format called CIF, which goes back to the mainframe era. It's basically a text file where each line holds a record.</p>
+                        <p>Lets start with the timetables. There is an XML feed, but the surprisingly better option is a wonderful format called CIF, which goes back to the mainframe era. It's basically a text file where each line holds a record.</p>
                     </aside>
                 </section>
 
@@ -668,7 +681,8 @@ LISWANSLE           1540 00000000
 LTSWANSEA 1542 15422     TF       </code></pre>
 
                     <aside class="notes">
-                        Here's the record for the train I got here on Wednesday:
+                        <p>Here's the record for the train I got here on Wednesday. You can clearly see a little structure to it, but...</p>
+                        <p>it's a lot simpler than it looks</p>
                     </aside>
                 </section>
 
@@ -725,8 +739,9 @@ LTSWANSEA 1542 15422     TF       </code></pre>
                     </table>
 
                     <aside class="notes">
-                        <p>This is a lot simpler than it looks - just chop the lines up into pieces of the specified length and match it to the spec.</p>
+                        <p>...it's a lot simpler than it looks - just chop the lines up into pieces of the specified length and match it to the spec.</p>
                         <p>I'll skim over this because there's a full and very detailed specification online however, in very poor timing news, they've just redone their website and the PDF has disappeared. I've contacted them to ask them to put it back, and I'll update the link in the GitHub repo when it is back.</p>
+                        <p>But you can see here (adlib)</p>
                     </aside>
                 </section>
 
@@ -796,7 +811,7 @@ LTSWANSEA 1542 15422     TF       </code></pre>
                         <p>Why are there three codes? Well, despite most of this harking back to British Rail days, the systems are there for different purposes.</p>
                         <p>CRS codes are just used for reserving seats and booking tickets.</p>
                         <p>TIPLOC codes are used to define timetables.</p>
-                        <p>STANOX codes are much closer to the "bare metal" of the system, as it were. There's other codes too, but this is complicated enough.</p>
+                        <p>STANOX codes are much closer to the "bare metal" of the system, as it were.</p>
                     </aside>
                 </section>
 
@@ -971,21 +986,82 @@ except Exception as e:
                     <table>
                         <tr style="border-bottom: 5px #939598 solid;">
                             <td style="border-right: 2px white dashed; width: 25%;">
-                                <img data-src="https://twemoji.maxcdn.com/2/svg/1f682.svg" style="width: 50%; height: 50%; border: none; background: none; box-shadow: none; transform: scaleX(-1);">
-                                1E23
-                                <img data-src="1f6a6-3aspect-green.svg" style="width: 50%; height: 50%; border: none; background: none; box-shadow: none;">
-                                TD1234
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <img data-src="https://twemoji.maxcdn.com/2/svg/1f682.svg" style="width: 50%; height: 50%; border: none; background: none; box-shadow: none; transform: scaleX(-1);">
+                                        </td>
+                                        <td>
+
+                                            <img data-src="1f6a6-3aspect-green.svg" style="width: 50%; height: 50%; border: none; background: none; box-shadow: none;">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            1E23
+                                        </td>
+                                        <td>
+                                            <div style="background: black; width: 2.5em; height: 2.5em; text-align: center; font-size: 0.75em;">TB<br>1234</div>
+                                        </td>
+                                    </tr>
+                                </table>
                             </td>
-                            <td style="border-right: 2px white dashed; width: 25%; text-align: right;"><img data-src="1f6a6-3aspect-yellow.svg" style="width: 50%; height: 50%; border: none; background: none; box-shadow: none;"></td>
-                            <td style="border-right: 2px white dashed; width: 25%; text-align: right;"><img data-src="1f6a6-3aspect-red.svg" style="width: 50%; height: 50%; border: none; background: none; box-shadow: none; "></td>
-                            <td style="width: 25%;"><img data-src="https://twemoji.maxcdn.com/2/svg/1f682.svg" style="width: 50%; height: 50%; border: none; background: none; box-shadow: none; transform: scaleX(-1);"><img data-src="1f6a6-3aspect-green.svg" style="width: 50%; height: 50%; border: none; background: none; box-shadow: none;"></td>
+                            <td style="border-right: 2px white dashed; width: 25%; text-align: right;">
+                                <table>
+                                    <tr>
+                                        <td style="text-align: right;">
+                                            <img data-src="1f6a6-3aspect-yellow.svg" style="width: 50%; height: 50%; border: none; background: none; box-shadow: none;">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align: right;">
+                                            <div style="background: black; width: 2.5em; height: 2.5em; text-align: center; font-size: 0.75em;">TB<br>1236</div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td style="border-right: 2px white dashed; width: 25%; text-align: right;">
+                                <table>
+                                    <tr>
+                                        <td style="text-align: right;">
+                                            <img data-src="1f6a6-3aspect-red.svg" style="width: 50%; height: 50%; border: none; background: none; box-shadow: none;">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align: right;">
+                                            <div style="background: black; width: 2.5em; height: 2.5em; text-align: center; font-size: 0.75em;">TB<br>1238</div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td style="width: 25%;">
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <img data-src="https://twemoji.maxcdn.com/2/svg/1f682.svg" style="width: 50%; height: 50%; border: none; background: none; box-shadow: none; transform: scaleX(-1);">
+                                        </td>
+                                        <td>
+
+                                            <img data-src="1f6a6-3aspect-green.svg" style="width: 50%; height: 50%; border: none; background: none; box-shadow: none;">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            1E22
+                                        </td>
+                                        <td>
+                                            <div style="background: black; width: 2.5em; height: 2.5em; text-align: center; font-size: 0.75em;">TB<br>1240</div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
                         </tr>
                     </table>
 
                     <aside class="notes">
                         <p>Each of these signals has an area code - which is based on the signal box that controls it - and a unique identifier. The train has its own reporting code too.</p>
                         <p>So in our previous example, the area code was TB, which is Three Bridges in West Sussex.</p>
-                        <p>The train reporting code is your link back to the timetable, although it's not unique except on a line.</p>
+                        <p>The train reporting code is your link back to the timetable, although it's not a straight one to one mapping.</p>
                     </aside>
                 </section>
 
@@ -994,7 +1070,7 @@ except Exception as e:
 
                     <aside class="notes">
                         <p>You can see the signal numbers on a plate below each signal - here's an example of signal Y226 at York Station.</p>
-                        <p>And so you can have a look next time you get on a train, write a few numbers down and then come back and watch the trains go by in JSON format instead.</p>
+                        <p>And so you can have a look next time you get on a train, write a few numbers down and you can save time with trainspotting by just watching them scroll past on your console instead.</p>
                     </aside>
                 </section>
 
@@ -1024,28 +1100,49 @@ except Exception as e:
                 </section>
 
                 <section>
-<pre><code>
-    Data byte 13: 1101 1111
-</code></pre>
+<pre><code>Data byte 13: 1101 1111</code></pre>
 
                     <aside class="notes">
                         <p>Each bit means something.</p>
                         <p>Could be a signal being at red.</p>
                         <p>Could be a level crossing being shut.</p>
                         <p>Could be a route being set.</p>
-                        <p>We don't know.</p>
-                        <p>We can try and work it out, and some people have done some brilliant work on this front, and you could too!</p>
+                        <p>We don't know. It's not published.</p>
+                        <p>We can try and work it out, and some people have managed to do so brilliantly.</p>
                     </aside>
                 </section>
 
                 <section>
-                    <H1>OPEN TRAIN TIMES TRACK MAP</H1>
+                    <h2>OpenTrainTimes</h2>
+                    <p>Not my site, I'm just a fan</p>
 
                     <aside class="notes">
-                        <p>If you do work it out, then you can end up with brilliant sites like this one at Open Train Times, which shows a mimic panel of all the signals and trains in an area.</p>
-                        <p>This has all been created using the open data, although very much not by me, and a number of railway staff have been seen using it!</p>
+                        <p>For example, Poggs who runs Open Train Times, which shows the panel of all the signals and trains in an area.</p>
+                        <p>This has all been created using the open data, although I must stress very much not by me, I'm just a fan of the site but a number of railway staff and stations have have been seen using it!</p>
                     </aside>
                 </section>
+
+                <section>
+                    <h1>The Problem</h1>
+
+                    <aside class="notes">
+                        <p>But this site is built by someone with very close ties to the industry.</p>
+                        <p>Most people don't have those ties and the knowledge is still too scattered, too much in the hands of the rail companies and a few hobbyists.</p>
+                        <p>There doesn't appear to be a good reason for this, just that everyone wants to keep their hard work for themselves.</p>
+                    </aside>
+                </section>
+
+                <section>
+                    <h1>The Solution?</h1>
+
+                    <aside class="notes">
+                        <p>But we like Python. We use open source code all day every day.</p>
+                        <p>Why can't we make this open source? Why can't we get together and produce a bunch of code for working with this stuff?</p>
+                        <p>Some of you people will be brilliant data analysts who see my problem of "does this bit refer to a signal" and can solve it in your sleep.</p>
+                        <p>So why not? I've given you everything you need to get started. So if you're inspired, why not take a look at my code, go and play and more importantly share what you find.</p>
+                    </aside>
+                </section>
+
 
                  <section>
                     <h1>Slides, code, links</h1>
